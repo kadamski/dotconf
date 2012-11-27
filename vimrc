@@ -1,3 +1,7 @@
+" Initialize pathogen (load plugin bundles):
+call pathogen#infect()
+call pathogen#helptags()
+
 " Show command in bottom-right corner when typing it
 set showcmd
 " Show cursor position

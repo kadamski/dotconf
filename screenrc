@@ -1,0 +1,14 @@
+# Large scrollback buffer
+defscrollback 10000
+# Status line
+caption always "%{= kw}%-w%{= BW}%n%?(%u)%? %t%{-}%+w %-= @%H - %D %d %M - %c"
+# Visual Bell
+vbell on
+# 
+startup_message off
+#
+multiuser on
+#
+autodetach on
+#
+defwrap on

@@ -1,7 +1,7 @@
 #!/bin/sh
 cd `dirname $0`
 
-DOTFILES='screenrc vimrc'
+DOTFILES='screenrc vimrc vim'
 
 for F in ${DOTFILES}; do
     if [[ ! -f ${HOME}/.${F} ]]; then

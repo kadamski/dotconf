@@ -8,3 +8,7 @@ for F in ${DOTFILES}; do
         ln -s ${PWD}/${F} ${HOME}/.${F}
     fi
 done
+
+git submodule init
+git submodule update
+# git submodule foreach git pull origin master

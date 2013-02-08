@@ -21,6 +21,9 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
+" Use fugitive statusline addon
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
 " Highlight search matches
 set showmatch
 

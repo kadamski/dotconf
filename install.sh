@@ -1,7 +1,7 @@
 #!/bin/sh
 cd `dirname $0`
 
-DOTFILES='screenrc vimrc vim tmux.conf'
+DOTFILES='screenrc vimrc vim tmux.conf bashrc'
 
 for F in ${DOTFILES}; do
     if [ ! -e ${HOME}/.${F} ]; then

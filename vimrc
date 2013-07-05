@@ -53,15 +53,11 @@ set listchars=tab:▸\ ,eol:¬
 " Save tabs in session
 set sessionoptions+=tabpages
 
-
 """""" BUILDIN PLUGINS
 " man support - "Man" command and \K
 runtime! ftplugin/man.vim
 
-
 """""" BINDS
-map <C-h> gT
-map <C-l> gt
 map <F2> :set list!<CR>
 
 inoremap  <Up>     <NOP>

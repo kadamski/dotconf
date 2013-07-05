@@ -60,6 +60,10 @@ runtime! ftplugin/man.vim
 """""" BINDS
 map <F2> :set list!<CR>
 
+set listchars=tab:▸\ ,eol:¬,nbsp:␣,trail:·
+" bash type tab-completion 
+set wildmode=longest,list
+
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>
 inoremap  <Left>   <NOP>

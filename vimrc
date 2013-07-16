@@ -77,3 +77,9 @@ noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
 set hidden
+
+try
+    set undofile
+    set undodir=$HOME/.vim/undo/
+catch
+endtry

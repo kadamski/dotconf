@@ -2,6 +2,17 @@
 call pathogen#infect()
 call pathogen#helptags()
 
+" My functions
+function! FoldToggle()
+    if &foldenable
+        setlocal nofoldenable
+        setlocal foldcolumn=0
+    else
+        setlocal foldenable
+        setlocal foldcolumn=2
+    endif
+endfunction
+
 " Show command in bottom-right corner when typing it
 set showcmd
 " Show cursor position
@@ -49,6 +60,10 @@ if has("autocmd")
   autocmd FileType markdown syn region nospellmarkdown1 start="`" end="`" contains=@NoSpell
   autocmd FileType markdown syn region nospellmarkdown2 start="`` " end="`` " contains=@NoSpell
   autocmd FileType markdown setlocal spell
+
+  autocmd FileType c setlocal noexpandtab foldmethod=syntax
+  autocmd FileType python setlocal foldmethod=indent
+  autocmd FileType c,python nnoremap zi :call FoldToggle()<cr>
 endif
 
 " Pretty symbols when showing white chars (:set list)
@@ -97,3 +112,9 @@ let g:airline#extensions#whitespace#enabled = 0
 let g:airline_section_y = ''
 let g:airline_section_x = ''
 let g:airline_section_a = ''
+
+" Folding
+nnoremap <Space> za
+set foldnestmax=2
+set nofoldenable
+set foldminlines=2

@@ -35,7 +35,7 @@ set wildignore=*.bak,*.o,*.e,*~
 set modeline
 
 " Set colorscheme
-colorscheme desert
+"colorscheme desert
 "colorscheme pablo
 
 " Tabs as 4 spaces
@@ -45,6 +45,7 @@ set ts=4 sw=4 sts=4 expandtab
 if has("autocmd")
   filetype on
   autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
+
   autocmd FileType markdown syn region nospellmarkdown1 start="`" end="`" contains=@NoSpell
   autocmd FileType markdown syn region nospellmarkdown2 start="`` " end="`` " contains=@NoSpell
   autocmd FileType markdown setlocal spell
@@ -83,3 +84,6 @@ try
     set undodir=$HOME/.vim/undo/
 catch
 endtry
+
+set background=dark
+colorscheme solarized

@@ -87,3 +87,13 @@ endtry
 
 set background=dark
 colorscheme solarized
+
+" airline plugin settings
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#buffer_nr_show = 1
+let g:airline#extensions#tabline#buffer_min_count = 1
+let g:airline#extensions#tabline#show_tab_nr = 0
+let g:airline#extensions#whitespace#enabled = 0
+let g:airline_section_y = ''
+let g:airline_section_x = ''
+let g:airline_section_a = ''

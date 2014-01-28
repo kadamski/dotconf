@@ -92,3 +92,10 @@ let g:airline#extensions#whitespace#enabled = 0
 let g:airline_section_y = ''
 let g:airline_section_x = ''
 let g:airline_section_a = ''
+
+if &t_Co == 256
+  let base16colorspace=256
+  let g:solarized_termcolors=256
+endif
+set background=dark
+colorscheme solarized

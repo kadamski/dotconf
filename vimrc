@@ -1,6 +1,21 @@
 " Initialize pathogen (load plugin bundles):
-call pathogen#infect()
-call pathogen#helptags()
+"call pathogen#infect()
+"call pathogen#helptags()
+
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+Bundle 'gmarik/vundle'
+
+Bundle 'tpope/vim-fugitive'
+Bundle 'sjl/gundo.vim.git'
+Bundle 'tpope/vim-surround.git'
+Bundle 'bling/vim-airline.git'
+Bundle 'altercation/vim-colors-solarized.git'
+Bundle 'kien/ctrlp.vim.git'
+Bundle 'majutsushi/tagbar'
+Bundle 'tomtom/tcomment_vim.git'
 
 function! FoldToggle()
     if &foldenable

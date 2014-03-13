@@ -120,3 +120,8 @@ nnoremap <Space> za
 set foldnestmax=2
 set nofoldenable
 set foldminlines=2
+
+let g:ctrlp_max_files = 50000
+let g:ctrlp_max_depth = 10
+let g:ctrlp_open_new_file = 'r'
+nnoremap <leader>b :CtrlPBuffer<cr>

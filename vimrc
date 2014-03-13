@@ -177,3 +177,5 @@ nnoremap <leader>] <C-W>}
 nnoremap <leader>p :ptselect<CR>
 nnoremap ]p :call PTagNext()<CR>
 nnoremap [p :call PTagPrev()<CR>
+
+command! -bar -nargs=0 SudoW   :setl nomod|silent exe 'write !sudo tee %>/dev/null'|let &mod = v:shell_error

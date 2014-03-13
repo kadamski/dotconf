@@ -12,6 +12,49 @@ function! FoldToggle()
     endif
 endfunction
 
+function! PreviewClose()
+    for nr in range(1, winnr('$'))
+        if getwinvar(nr, "&pvw") == 1
+            execute ":bdelete " . winbufnr(nr)
+            pclose
+            return nr
+        endif
+    endfor
+    return 0
+endfunction
+
+function! PTagNext()
+    try
+        call PreviewClose()
+        ptnext
+    catch
+    endtry
+endfunction
+
+function! PTagPrev()
+    try
+        call PreviewClose()
+        ptprev
+    catch
+    endtry
+endfunction
+
+function! TagNext()
+    try
+        tnext
+        execute ":bdelete " . bufnr('#')
+    catch
+    endtry
+endfunction
+
+function! TagPrev()
+    try
+        tprev
+        execute ":bdelete " . bufnr('#')
+    catch
+    endtry
+endfunction
+
 " Show command in bottom-right corner when typing it
 set showcmd
 " Show cursor position
@@ -129,3 +172,8 @@ nnoremap <leader>b :CtrlPBuffer<cr>
 nnoremap <leader>t :TagbarToggle<cr>
 
 let g:tcommentInlineC = "// %s"
+
+nnoremap <leader>] <C-W>}
+nnoremap <leader>p :ptselect<CR>
+nnoremap ]p :call PTagNext()<CR>
+nnoremap [p :call PTagPrev()<CR>

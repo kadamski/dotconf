@@ -127,3 +127,5 @@ let g:ctrlp_open_new_file = 'r'
 nnoremap <leader>b :CtrlPBuffer<cr>
 
 nnoremap <leader>t :TagbarToggle<cr>
+
+let g:tcommentInlineC = "// %s"

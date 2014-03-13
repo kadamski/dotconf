@@ -19,3 +19,6 @@
 [submodule "vim/bundle/tagbar"]
     path = vim/bundle/tagbar
     urt = git://github.com/majutsushi/tagbar
+[submodule "vim/bundle/tcomment_vim/"]
+    path = vim/bundle/tcomment_vim
+    urt = https://github.com/tomtom/tcomment_vim.git

@@ -2,7 +2,6 @@
 call pathogen#infect()
 call pathogen#helptags()
 
-" My functions
 function! FoldToggle()
     if &foldenable
         setlocal nofoldenable
@@ -11,6 +10,49 @@ function! FoldToggle()
         setlocal foldenable
         setlocal foldcolumn=2
     endif
+endfunction
+
+function! PreviewClose()
+    for nr in range(1, winnr('$'))
+        if getwinvar(nr, "&pvw") == 1
+            execute ":bdelete " . winbufnr(nr)
+            pclose
+            return nr
+        endif
+    endfor
+    return 0
+endfunction
+
+function! PTagNext()
+    try
+        call PreviewClose()
+        ptnext
+    catch
+    endtry
+endfunction
+
+function! PTagPrev()
+    try
+        call PreviewClose()
+        ptprev
+    catch
+    endtry
+endfunction
+
+function! TagNext()
+    try
+        tnext
+        execute ":bdelete " . bufnr('#')
+    catch
+    endtry
+endfunction
+
+function! TagPrev()
+    try
+        tprev
+        execute ":bdelete " . bufnr('#')
+    catch
+    endtry
 endfunction
 
 " Show command in bottom-right corner when typing it
@@ -100,10 +142,6 @@ try
 catch
 endtry
 
-set background=dark
-colorscheme solarized
-
-" airline plugin settings
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#buffer_min_count = 1
@@ -113,8 +151,31 @@ let g:airline_section_y = ''
 let g:airline_section_x = ''
 let g:airline_section_a = ''
 
+if &t_Co == 256
+  let base16colorspace=256
+  let g:solarized_termcolors=256
+endif
+set background=dark
+colorscheme solarized
+
 " Folding
 nnoremap <Space> za
 set foldnestmax=2
 set nofoldenable
 set foldminlines=2
+
+let g:ctrlp_max_files = 50000
+let g:ctrlp_max_depth = 10
+let g:ctrlp_open_new_file = 'r'
+nnoremap <leader>b :CtrlPBuffer<cr>
+
+nnoremap <leader>t :TagbarToggle<cr>
+
+let g:tcommentInlineC = "// %s"
+
+nnoremap <leader>] <C-W>}
+nnoremap <leader>p :ptselect<CR>
+nnoremap ]p :call PTagNext()<CR>
+nnoremap [p :call PTagPrev()<CR>
+
+command! -bar -nargs=0 SudoW   :setl nomod|silent exe 'write !sudo tee %>/dev/null'|let &mod = v:shell_error

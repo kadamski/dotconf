@@ -121,6 +121,7 @@ if has("autocmd")
   autocmd FileType c setlocal noexpandtab foldmethod=syntax
   autocmd FileType python setlocal foldmethod=indent
   autocmd FileType c,python nnoremap zi :call FoldToggle()<cr>
+  autocmd FileType gitcommit setlocal colorcolumn=72 tw=72 wrap
 endif
 
 " Pretty symbols when showing white chars (:set list)

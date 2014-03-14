@@ -183,6 +183,7 @@ set foldminlines=2
 let g:ctrlp_max_files = 50000
 let g:ctrlp_max_depth = 10
 let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:30'
 nnoremap <leader>b :CtrlPBuffer<cr>
 
 nnoremap <leader>t :TagbarToggle<cr>

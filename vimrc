@@ -19,6 +19,7 @@ Bundle 'tomtom/tcomment_vim.git'
 Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
 Bundle 'gtags.vim'
+Bundle 'myusuf3/numbers.vim'
 
 function! FoldToggle()
     if &foldenable
@@ -106,6 +107,8 @@ set modeline
 " Set colorscheme
 colorscheme desert
 "colorscheme pablo
+
+set number
 
 " Tabs as 4 spaces
 set ts=4 sw=4 sts=4 expandtab

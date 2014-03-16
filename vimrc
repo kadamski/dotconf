@@ -216,3 +216,19 @@ nnoremap ]p :call PTagNext()<CR>
 nnoremap [p :call PTagPrev()<CR>
 
 command! -bar -nargs=0 SudoW   :setl nomod|silent exe 'write !sudo tee %>/dev/null'|let &mod = v:shell_error
+if executable("gtags-cscope")
+    set csprg=gtags-cscope
+    set cscopequickfix=s-,c-,d-,i-,t-,e-,g-
+
+    " find definition
+    nmap <C-\>t :execute "cs find g " . expand("<cword>")<cr>
+    " find callers
+    nmap <C-\>r :execute "cs find c " . expand("<cword>")<cr>
+    " find symbol
+    nmap <C-\>s :execute "cs find s " . expand("<cword>")<cr>
+    " find pattern
+    nmap <C-\>g :execute "cs find e " . expand("<cword>")<cr>
+
+    nnoremap ]t :call TagNext()<CR>
+    nnoremap [t :call TagPrev()<CR>
+endif

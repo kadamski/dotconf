@@ -16,6 +16,9 @@ Bundle 'altercation/vim-colors-solarized.git'
 Bundle 'kien/ctrlp.vim.git'
 Bundle 'majutsushi/tagbar'
 Bundle 'tomtom/tcomment_vim.git'
+Bundle 'mileszs/ack.vim'
+Bundle 'rking/ag.vim'
+Bundle 'gtags.vim'
 
 function! FoldToggle()
     if &foldenable

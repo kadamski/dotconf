@@ -23,6 +23,11 @@ Bundle 'myusuf3/numbers.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'mhinz/vim-signify'
 
+"Experiments:
+Bundle 'kadamski/clever-f.vim'
+Bundle 'Lokaltog/vim-easymotion.git'
+Bundle 'Shougo/neocomplcache.vim'
+
 function! FoldToggle()
     if &foldenable
         setlocal nofoldenable
@@ -234,3 +239,8 @@ if executable("gtags-cscope")
     nnoremap ]t :call TagNext()<CR>
     nnoremap [t :call TagPrev()<CR>
 endif
+
+let g:clever_f_mark_cursor = 1
+
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_min_syntax_length = 3

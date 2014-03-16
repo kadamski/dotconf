@@ -144,6 +144,7 @@ map <F2> :set list!<CR>
 set listchars=tab:▸\ ,eol:¬,nbsp:␣,trail:·
 " bash type tab-completion 
 set wildmode=longest,list
+set completeopt=longest,menu,preview
 
 inoremap  <Up>     <NOP>
 inoremap  <Down>   <NOP>

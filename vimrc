@@ -20,6 +20,8 @@ Bundle 'mileszs/ack.vim'
 Bundle 'rking/ag.vim'
 Bundle 'gtags.vim'
 Bundle 'myusuf3/numbers.vim'
+Bundle 'scrooloose/syntastic'
+Bundle 'mhinz/vim-signify'
 
 function! FoldToggle()
     if &foldenable

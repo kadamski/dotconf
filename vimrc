@@ -74,8 +74,6 @@ endfunction
 set showcmd
 " Show cursor position
 set ruler
-" Show current mode in bottom left corner
-set showmode
 " Always show status line
 set laststatus=2
 " Incremental search
@@ -158,14 +156,28 @@ try
 catch
 endtry
 
+let g:airline_theme="solarized"
+"let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#buffer_min_count = 1
 let g:airline#extensions#tabline#show_tab_nr = 0
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline_section_y = ''
-let g:airline_section_x = ''
-let g:airline_section_a = ''
+let g:airline#extensions#whitespace#enabled = 1
+"let g:airline_section_y = ''
+"let g:airline_section_x = ''
+"let g:airline_section_a = ''
+let g:airline_mode_map={
+        \ '__' : '-',
+        \ 'n'  : 'N',
+        \ 'i'  : 'I',
+        \ 'R'  : 'R',
+        \ 'v'  : 'V',
+        \ 'V'  : 'V-L',
+        \ 'c'  : 'C',
+        \ '' : 'V-B',
+        \ 's'  : 'S',
+        \ 'S'  : 'S-L',
+        \ '' : 'S-B'}
 
 if &t_Co == 256
   let base16colorspace=256

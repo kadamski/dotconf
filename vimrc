@@ -22,6 +22,7 @@ Bundle 'gtags.vim'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'mhinz/vim-signify'
+Bundle 'kshenoy/vim-signature'
 
 "Experiments:
 Bundle 'kadamski/clever-f.vim'

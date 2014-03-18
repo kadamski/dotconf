@@ -29,6 +29,8 @@ Bundle 'kadamski/clever-f.vim'
 Bundle 'Lokaltog/vim-easymotion.git'
 Bundle 'Shougo/neocomplcache.vim'
 
+Bundle 'wikitopian/hardmode'
+let g:HardMode_level='wannabe'
 function! FoldToggle()
     if &foldenable
         setlocal nofoldenable
@@ -156,15 +158,6 @@ set listchars=tab:▸\ ,eol:¬,nbsp:␣,trail:·
 " bash type tab-completion
 set wildmode=longest,list
 set completeopt=longest,menu,preview
-
-inoremap  <Up>     <NOP>
-inoremap  <Down>   <NOP>
-inoremap  <Left>   <NOP>
-inoremap  <Right>  <NOP>
-noremap   <Up>     <NOP>
-noremap   <Down>   <NOP>
-noremap   <Left>   <NOP>
-noremap   <Right>  <NOP>
 
 set hidden
 

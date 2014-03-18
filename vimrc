@@ -151,7 +151,7 @@ if has("autocmd")
   autocmd FileType markdown syn region nospellmarkdown2 start="`` " end="`` " contains=@NoSpell
   autocmd FileType markdown setlocal spell
 
-  autocmd FileType c setlocal noexpandtab foldmethod=syntax
+  autocmd FileType c setlocal noexpandtab foldmethod=syntax colorcolumn=80
   autocmd FileType python setlocal foldmethod=indent
   autocmd FileType c,python nnoremap zi :call FoldToggle()<cr>
   autocmd FileType gitcommit setlocal colorcolumn=72 tw=72 wrap

@@ -190,10 +190,10 @@ let g:airline_mode_map={
         \ 'S'  : 'S-L',
         \ '' : 'S-B'}
 
-if &t_Co == 256
-  let base16colorspace=256
-  let g:solarized_termcolors=256
-endif
+" if &t_Co == 256
+"   let base16colorspace=256
+"   let g:solarized_termcolors=256
+" endif
 set background=dark
 colorscheme solarized
 set background=dark

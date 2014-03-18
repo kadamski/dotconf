@@ -29,8 +29,24 @@ Bundle 'kadamski/clever-f.vim'
 Bundle 'Lokaltog/vim-easymotion.git'
 Bundle 'Shougo/neocomplcache.vim'
 
+Bundle 'troydm/easybuffer.vim'
+nnoremap <leader>' :EasyBuffer<cr>
 Bundle 'wikitopian/hardmode'
 let g:HardMode_level='wannabe'
+
+"Checkout:
+"Bundle 'vim-scripts/YankRing.vim'
+"Bundle 'basilgor/vim-autotags'
+"Bundle 'embear/vim-localvimrc'
+"Bundle 'artemave/slowdown.vim'
+"Bundle 'khorser/vim-qfnotes'
+"Bundle 'glts/vim-textobj-indblock'
+"Bundle 'kana/vim-textobj-user'
+"Bundle 'chrisbra/Recover.vim'
+"Bundle 'tpope/vim-sensible'
+"Bundle 'sjl/clam.vim'
+"Bundle 'Valloric/YouCompleteMe'
+
 function! FoldToggle()
     if &foldenable
         setlocal nofoldenable

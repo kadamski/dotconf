@@ -121,6 +121,9 @@ set number
 " Tabs as 4 spaces
 set ts=4 sw=4 sts=4 expandtab
 
+" allow backspace to previous insert
+set backspace=2
+
 " Set different indent settings for Makefiles
 if has("autocmd")
   filetype on
@@ -150,7 +153,7 @@ runtime! ftplugin/man.vim
 map <F2> :set list!<CR>
 
 set listchars=tab:▸\ ,eol:¬,nbsp:␣,trail:·
-" bash type tab-completion 
+" bash type tab-completion
 set wildmode=longest,list
 set completeopt=longest,menu,preview
 
@@ -246,3 +249,6 @@ let g:clever_f_mark_cursor = 1
 
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_min_syntax_length = 3
+
+inoremap <c-u> <c-g>u<c-u>
+inoremap <c-w> <c-g>u<c-w>

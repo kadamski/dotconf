@@ -25,7 +25,6 @@ Bundle 'mhinz/vim-signify'
 Bundle 'kshenoy/vim-signature'
 
 "Experiments:
-Bundle 'kadamski/clever-f.vim'
 Bundle 'Lokaltog/vim-easymotion.git'
 Bundle 'Shougo/neocomplcache.vim'
 

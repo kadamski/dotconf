@@ -157,9 +157,6 @@ if has("autocmd")
   autocmd FileType gitcommit setlocal colorcolumn=72 tw=72 wrap
 endif
 
-" Pretty symbols when showing white chars (:set list)
-set listchars=tab:▸\ ,eol:¬
-
 " Save tabs in session
 set sessionoptions+=tabpages
 
@@ -190,7 +187,7 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#tabline#buffer_min_count = 1
 let g:airline#extensions#tabline#show_tab_nr = 0
 let g:airline#extensions#whitespace#enabled = 1
-"let g:airline_section_y = ''
+let g:airline_section_y = ''
 "let g:airline_section_x = ''
 "let g:airline_section_a = ''
 let g:airline_mode_map={

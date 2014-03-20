@@ -121,9 +121,6 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-" Use fugitive statusline addon
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-
 " Highlight search matches
 set showmatch
 
@@ -133,10 +130,6 @@ set wildignore=*.bak,*.o,*.e,*~
 
 " Use settings from modeline
 set modeline
-
-" Set colorscheme
-"colorscheme desert
-"colorscheme pablo
 
 set number
 
@@ -254,8 +247,6 @@ if executable("gtags-cscope")
     nnoremap ]t :call TagNext()<CR>
     nnoremap [t :call TagPrev()<CR>
 endif
-
-let g:clever_f_mark_cursor = 1
 
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_min_syntax_length = 3

@@ -23,6 +23,7 @@ Bundle 'myusuf3/numbers.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'mhinz/vim-signify'
 Bundle 'kshenoy/vim-signature'
+Bundle 'mhinz/vim-startify'
 
 "Experiments:
 Bundle 'Lokaltog/vim-easymotion.git'
@@ -45,6 +46,9 @@ let g:HardMode_level='wannabe'
 "Bundle 'tpope/vim-sensible'
 "Bundle 'sjl/clam.vim'
 "Bundle 'Valloric/YouCompleteMe'
+"Bundle 'tpope/vim-obsession'
+"Bundle 'kablamo/vim-git-log'
+"Bundle 'tpope/vim-dispatch'
 
 function! FoldToggle()
     if &foldenable

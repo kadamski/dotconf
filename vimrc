@@ -24,6 +24,7 @@ Bundle 'scrooloose/syntastic'
 Bundle 'mhinz/vim-signify'
 Bundle 'kshenoy/vim-signature'
 Bundle 'mhinz/vim-startify'
+Bundle 'ivalkeen/vim-ctrlp-tjump'
 
 "Experiments:
 Bundle 'Lokaltog/vim-easymotion.git'
@@ -264,3 +265,6 @@ inoremap <c-w> <c-g>u<c-w>
 
 nnoremap gs :call search('\s\+', 'W')<cr>
 nnoremap gS :call search('\s\+', 'bW')<cr>
+
+nnoremap <c-]> :CtrlPtjump<cr>
+vnoremap <c-]> :CtrlPtjumpVisual<cr>

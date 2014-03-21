@@ -257,3 +257,6 @@ let g:neocomplcache_min_syntax_length = 3
 
 inoremap <c-u> <c-g>u<c-u>
 inoremap <c-w> <c-g>u<c-w>
+
+nnoremap gs :call search('\s\+', 'W')<cr>
+nnoremap gS :call search('\s\+', 'bW')<cr>

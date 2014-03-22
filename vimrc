@@ -273,3 +273,5 @@ let g:list_of_normal_keys = ['h', 'j', 'k', 'l', '-', '+']
 
 let g:move_map_keys = 1
 let g:move_key_modifier = 'C'
+
+let g:startify_bookmarks = [ '~/dotconf/vimrc' ]

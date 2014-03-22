@@ -25,6 +25,7 @@ Bundle 'mhinz/vim-signify'
 Bundle 'kshenoy/vim-signature'
 Bundle 'mhinz/vim-startify'
 Bundle 'ivalkeen/vim-ctrlp-tjump'
+Bundle 'takac/vim-hardtime'
 
 "Experiments:
 Bundle 'Lokaltog/vim-easymotion.git'
@@ -34,6 +35,7 @@ Bundle 'troydm/easybuffer.vim'
 nnoremap <leader>' :EasyBuffer<cr>
 Bundle 'wikitopian/hardmode'
 let g:HardMode_level='wannabe'
+autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
 "Checkout:
 "Bundle 'vim-scripts/YankRing.vim'
@@ -259,3 +261,6 @@ nnoremap gS :call search('\s\+', 'bW')<cr>
 
 nnoremap <c-]> :CtrlPtjump<cr>
 vnoremap <c-]> :CtrlPtjumpVisual<cr>
+
+let g:hardtime_default_on = 1
+let g:list_of_normal_keys = ['h', 'j', 'k', 'l', '-', '+']

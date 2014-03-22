@@ -176,6 +176,8 @@ set wildmode=longest,list
 set completeopt=longest,menu,preview
 
 set hidden
+set history=2000
+set scrolloff=4
 
 try
     set undofile

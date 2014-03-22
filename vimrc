@@ -26,6 +26,8 @@ Bundle 'kshenoy/vim-signature'
 Bundle 'mhinz/vim-startify'
 Bundle 'ivalkeen/vim-ctrlp-tjump'
 Bundle 'takac/vim-hardtime'
+Bundle 'tpope/vim-repeat'
+Bundle 'matze/vim-move'
 
 "Experiments:
 Bundle 'Lokaltog/vim-easymotion.git'
@@ -52,6 +54,8 @@ autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 "Bundle 'tpope/vim-obsession'
 "Bundle 'kablamo/vim-git-log'
 "Bundle 'tpope/vim-dispatch'
+"Bundle 'sirver/ultisnips'
+"Bundle 'jceb/vim-editqf'
 
 function! FoldToggle()
     if &foldenable
@@ -264,3 +268,6 @@ vnoremap <c-]> :CtrlPtjumpVisual<cr>
 
 let g:hardtime_default_on = 1
 let g:list_of_normal_keys = ['h', 'j', 'k', 'l', '-', '+']
+
+let g:move_map_keys = 1
+let g:move_key_modifier = 'C'

@@ -13,4 +13,7 @@ done
 git submodule init
 git submodule update
 # git submodule foreach git pull origin master
+if [ ! -e ${HOME}/.vim/bundle/vundle ]; then
+    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+fi
 vim +BundleInstall +qall

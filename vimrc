@@ -121,6 +121,8 @@ set incsearch
 " Set case sensitive search
 set noignorecase
 
+set fillchars=vert:\|,fold:\ 
+
 " Syntax highlight when in GUI mode or in console with more than one color
 if &t_Co > 2 || has("gui_running")
   syntax on
@@ -275,3 +277,6 @@ let g:move_map_keys = 1
 let g:move_key_modifier = 'C'
 
 let g:startify_bookmarks = [ '~/dotconf/vimrc' ]
+
+hi TagbarHighlight ctermbg=9 ctermfg=7 cterm=bold
+let g:tagbar_zoomwidth=0 " zoom to minimum that is needed

@@ -32,6 +32,9 @@ Bundle 'matze/vim-move'
 "Experiments:
 Bundle 'Lokaltog/vim-easymotion.git'
 Bundle 'Shougo/neocomplcache.vim'
+Bundle 'embear/vim-localvimrc'
+let g:localvimrc_sandbox=0
+let g:localvimrc_persistent=2
 
 Bundle 'troydm/easybuffer.vim'
 nnoremap <leader>' :EasyBuffer<cr>

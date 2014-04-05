@@ -32,6 +32,9 @@ Bundle 'matze/vim-move'
 "Experiments:
 Bundle 'Lokaltog/vim-easymotion.git'
 Bundle 'Shougo/neocomplcache.vim'
+Bundle 'embear/vim-localvimrc'
+let g:localvimrc_sandbox=0
+let g:localvimrc_persistent=2
 
 Bundle 'troydm/easybuffer.vim'
 nnoremap <leader>' :EasyBuffer<cr>
@@ -121,6 +124,8 @@ set incsearch
 " Set case sensitive search
 set noignorecase
 
+set fillchars=vert:\|,fold:\ 
+
 " Syntax highlight when in GUI mode or in console with more than one color
 if &t_Co > 2 || has("gui_running")
   syntax on
@@ -154,9 +159,9 @@ if has("autocmd")
   autocmd FileType markdown syn region nospellmarkdown2 start="`` " end="`` " contains=@NoSpell
   autocmd FileType markdown setlocal spell
 
-  autocmd FileType c setlocal noexpandtab foldmethod=syntax colorcolumn=80
+  autocmd FileType c,cpp setlocal foldmethod=syntax colorcolumn=80
   autocmd FileType python setlocal foldmethod=indent
-  autocmd FileType c,python nnoremap zi :call FoldToggle()<cr>
+  autocmd FileType c,cpp,python nnoremap zi :call FoldToggle()<cr>
   autocmd FileType gitcommit setlocal colorcolumn=72 tw=72 wrap
 endif
 
@@ -275,3 +280,6 @@ let g:move_map_keys = 1
 let g:move_key_modifier = 'C'
 
 let g:startify_bookmarks = [ '~/dotconf/vimrc' ]
+
+hi TagbarHighlight ctermbg=9 ctermfg=7 cterm=bold
+let g:tagbar_zoomwidth=0 " zoom to minimum that is needed

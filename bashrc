@@ -15,3 +15,5 @@ fi
 # ctrl-<left> ctrl-<right>
 bind '"\eOC":forward-word'
 bind '"\eOD":backward-word'
+export TERM=${TERM%%-256color}-256color
+export PATH=~/bin/:$PATH

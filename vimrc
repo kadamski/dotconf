@@ -28,6 +28,7 @@ Bundle 'ivalkeen/vim-ctrlp-tjump'
 Bundle 'takac/vim-hardtime'
 Bundle 'tpope/vim-repeat'
 Bundle 'matze/vim-move'
+Bundle 'kadamski/vim-lastcurpos'
 
 "Experiments:
 Bundle 'Lokaltog/vim-easymotion.git'

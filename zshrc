@@ -22,7 +22,7 @@ source $ZSH/oh-my-zsh.sh
 #############################################################
 
 export PATH=$HOME/bin:/usr/local/bin:$PATH
-export EDITPR=vim
+export EDITOR=vim
 
 APPEND_HISTORY="true"
 SHARE_HISTORY="true"

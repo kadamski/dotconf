@@ -43,6 +43,8 @@ Bundle 'wikitopian/hardmode'
 let g:HardMode_level='wannabe'
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
+Bundle 'bronson/vim-trailing-whitespace'
+
 "Checkout:
 "Bundle 'vim-scripts/YankRing.vim'
 "Bundle 'basilgor/vim-autotags'

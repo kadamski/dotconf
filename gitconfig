@@ -1,0 +1,10 @@
+[color]
+    ui = auto
+[push]
+    default = simple
+[alias]
+    glog = log --oneline --graph --all --color --decorate
+[core]
+    excludesfile = ~/dotconf/gitignore_global
+[include]
+    path = ~/.gitconfig-private

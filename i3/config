@@ -155,9 +155,11 @@ bindsym $mod+Shift+f border toggle
 
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
+bindsym XF86MonBrightnessUp exec /usr/bin/brightness.sh +
+bindsym XF86MonBrightnessDown exec /usr/bin/brightness.sh -
 bindsym --release XF86AudioMute exec amixer -q set Master toggle
 
-exec --no-startup-id nm-applet
+# exec --no-startup-id nm-applet
 exec --no-startup-id xsetroot -solid "#333333"
 
 # xprop
@@ -165,3 +167,6 @@ for_window [class="B2g"] floating enable
 
 assign [class="Firefox"] 2: www
 assign [class="Claws-mail"] 3: mail
+
+exec 'dbus-send --session --print-reply=string --dest=org.gnome.SessionManager "/org/gnome/SessionManager" org.gnome.SessionManager.RegisterClient "string:i3" "string:$DESKTOP_AUTOSTART_ID"'
+exec echo ".i3/config: DESKTOP_AUTOSTART_ID $DESKTOP_AUTOSTART_ID, registering with org.gnome.SessionManager"

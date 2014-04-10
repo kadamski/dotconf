@@ -15,5 +15,17 @@ fi
 # ctrl-<left> ctrl-<right>
 bind '"\eOC":forward-word'
 bind '"\eOD":backward-word'
+
 export TERM=${TERM%%-256color}-256color
 export PATH=~/bin/:$PATH
+
+unset PROMPT_COMMAND
+
+#source ~/dotconf/base16-default.dark.sh
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

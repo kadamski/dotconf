@@ -104,6 +104,7 @@ function! TagNext()
     try
         tnext
         execute ":bdelete " . bufnr('#')
+        execute ":pedit +" . getpos(".")[1] ." %"
     catch
     endtry
 endfunction
@@ -112,6 +113,7 @@ function! TagPrev()
     try
         tprev
         execute ":bdelete " . bufnr('#')
+        execute ":pedit +" . getpos(".")[1] ." %"
     catch
     endtry
 endfunction
@@ -166,6 +168,7 @@ if has("autocmd")
   autocmd FileType python setlocal foldmethod=indent
   autocmd FileType c,cpp,python nnoremap zi :call FoldToggle()<cr>
   autocmd FileType gitcommit setlocal colorcolumn=72 tw=72 wrap
+  autocmd FileType qf syn match qfFileName "<<\S*>>"
 endif
 
 " Save tabs in session
@@ -230,6 +233,12 @@ set foldnestmax=2
 set nofoldenable
 set foldminlines=2
 
+"let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py'
+"let g:ycm_add_preview_to_completeopt = 1
+
+"set cscopetag
+"set csto=1
+
 let g:ctrlp_max_files = 50000
 let g:ctrlp_max_depth = 10
 let g:ctrlp_open_new_file = 'r'
@@ -247,6 +256,13 @@ nnoremap ]p :call PTagNext()<CR>
 nnoremap [p :call PTagPrev()<CR>
 
 command! -bar -nargs=0 SudoW   :setl nomod|silent exe 'write !sudo tee %>/dev/null'|let &mod = v:shell_error
+
+"let g:UltiSnipsExpandTrigger="<tab>"
+"let g:UltiSnipsJumpForwardTrigger="<c-b>"
+"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+"g:Gtags_OpenQuickfixWindow
+
 if executable("gtags-cscope")
     set csprg=gtags-cscope
     set cscopequickfix=s-,c-,d-,i-,t-,e-,g-

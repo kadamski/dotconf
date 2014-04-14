@@ -1,5 +1,7 @@
 export ZSH=$HOME/.oh-my-zsh
 
+ZSH_CUSTOM=$HOME/dotconf/zsh_custom/
+
 ZSH_THEME="3den"
 ZSH_THEME="intheloop"
 ZSH_THEME="frisk"

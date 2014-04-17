@@ -25,10 +25,10 @@ Bundle 'mhinz/vim-signify'
 Bundle 'kshenoy/vim-signature'
 Bundle 'mhinz/vim-startify'
 Bundle 'ivalkeen/vim-ctrlp-tjump'
-Bundle 'takac/vim-hardtime'
 Bundle 'tpope/vim-repeat'
 Bundle 'matze/vim-move'
 Bundle 'kadamski/vim-lastcurpos'
+Bundle 'bronson/vim-trailing-whitespace'
 
 "Experiments:
 Bundle 'Lokaltog/vim-easymotion.git'
@@ -43,10 +43,9 @@ Bundle 'wikitopian/hardmode'
 let g:HardMode_level='wannabe'
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
-Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'vim-scripts/YankRing.vim'
 
 "Checkout:
-"Bundle 'vim-scripts/YankRing.vim'
 "Bundle 'basilgor/vim-autotags'
 "Bundle 'embear/vim-localvimrc'
 "Bundle 'artemave/slowdown.vim'

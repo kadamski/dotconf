@@ -44,10 +44,11 @@ let g:HardMode_level='wannabe'
 autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
 Bundle 'vim-scripts/YankRing.vim'
+let g:yankring_replace_n_nkey=''
+let g:yankring_replace_n_pkey='<C-N>'
 
 "Checkout:
 "Bundle 'basilgor/vim-autotags'
-"Bundle 'embear/vim-localvimrc'
 "Bundle 'artemave/slowdown.vim'
 "Bundle 'khorser/vim-qfnotes'
 "Bundle 'glts/vim-textobj-indblock'
@@ -291,14 +292,14 @@ nnoremap gS :call search('\s\+', 'bW')<cr>
 nnoremap <c-]> :CtrlPtjump<cr>
 vnoremap <c-]> :CtrlPtjumpVisual<cr>
 
-let g:hardtime_default_on = 1
-let g:list_of_normal_keys = ['h', 'j', 'k', 'l', '-', '+']
-
+" vim-move
 let g:move_map_keys = 1
 let g:move_key_modifier = 'C'
 
+" vim-startify
 let g:startify_bookmarks = [ '~/dotconf/vimrc' ]
 
+" tagbar
 hi TagbarHighlight ctermbg=9 ctermfg=7 cterm=bold
 let g:tagbar_zoomwidth=0 " zoom to minimum that is needed
 

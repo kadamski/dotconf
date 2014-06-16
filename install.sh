@@ -1,7 +1,7 @@
 #!/bin/sh
 cd `dirname $0`
 
-DOTFILES='screenrc vimrc vim tmux.conf bashrc i3status.conf i3/config zshrc gitconfig'
+DOTFILES='screenrc vimrc vim tmux.conf bashrc i3status.conf i3/config zshrc gitconfig vimperator'
 
 for F in ${DOTFILES}; do
     if [ ! -e ${HOME}/.${F} ]; then

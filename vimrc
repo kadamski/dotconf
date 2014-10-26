@@ -305,3 +305,6 @@ hi TagbarHighlight ctermbg=9 ctermfg=7 cterm=bold
 let g:tagbar_zoomwidth=0 " zoom to minimum that is needed
 
 filetype indent on
+
+set mouse=a
+set ttymouse=xterm

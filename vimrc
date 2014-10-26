@@ -29,6 +29,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'matze/vim-move'
 Bundle 'kadamski/vim-lastcurpos'
 Bundle 'bronson/vim-trailing-whitespace'
+Bundle 'sudar/vim-arduino-syntax'
 
 "Experiments:
 Bundle 'Lokaltog/vim-easymotion.git'

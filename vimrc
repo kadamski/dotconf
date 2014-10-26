@@ -308,3 +308,6 @@ filetype indent on
 
 set mouse=a
 set ttymouse=xterm
+
+set splitbelow
+set splitright

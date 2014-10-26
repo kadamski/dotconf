@@ -34,6 +34,15 @@ Bundle 'sudar/vim-arduino-syntax'
 "Experiments:
 Bundle 'Lokaltog/vim-easymotion.git'
 Bundle 'Shougo/neocomplcache.vim'
+" make Vim call omni function when below patterns matchs
+let g:neocomplcache_force_omni_patterns = {}
+let g:neocomplcache_force_omni_patterns.python = '[^. \t]\.\w*'
+
+Bundle 'davidhalter/jedi-vim'
+let g:jedi#popup_on_dot = 0
+let g:jedi#popup_select_first = 0
+autocmd  FileType python let b:did_ftplugin = 1
+
 Bundle 'embear/vim-localvimrc'
 let g:localvimrc_sandbox=0
 let g:localvimrc_persistent=2

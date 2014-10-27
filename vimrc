@@ -30,6 +30,8 @@ Bundle 'matze/vim-move'
 Bundle 'kadamski/vim-lastcurpos'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'sheerun/vim-polyglot'
+" Auto indent using heuristics
+Bundle 'tpope/vim-sleuth'
 
 "Experiments:
 Bundle 'Lokaltog/vim-easymotion.git'

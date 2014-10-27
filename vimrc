@@ -310,6 +310,7 @@ let g:move_key_modifier = 'C'
 
 " vim-startify
 let g:startify_bookmarks = [ '~/dotconf/vimrc' ]
+let g:startify_session_persistence = 1
 
 " tagbar
 hi TagbarHighlight ctermbg=9 ctermfg=7 cterm=bold

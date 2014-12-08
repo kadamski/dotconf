@@ -29,3 +29,4 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+HISTFILESIZE=10000

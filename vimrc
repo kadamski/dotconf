@@ -63,6 +63,8 @@ Bundle 'vim-scripts/YankRing.vim'
 let g:yankring_replace_n_nkey=''
 let g:yankring_replace_n_pkey='<C-N>'
 
+Bundle 'christoomey/vim-tmux-navigator'
+
 "Checkout:
 "Bundle 'basilgor/vim-autotags'
 "Bundle 'artemave/slowdown.vim'

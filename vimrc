@@ -188,6 +188,14 @@ if has("autocmd")
   autocmd FileType c,cpp,python nnoremap zi :call FoldToggle()<cr>
   autocmd FileType gitcommit setlocal colorcolumn=72 tw=72 wrap
   autocmd FileType qf syn match qfFileName "<<\S*>>"
+
+  " When editing a file, always jump to the last cursor position
+  autocmd BufReadPost *
+  \ if line("'\"") > 0 && line ("'\"") <= line("$") |
+  \   exe "normal! g'\"" |
+  \ endif
+
+  augroup END
 endif
 
 " Save tabs in session

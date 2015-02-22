@@ -10,6 +10,8 @@ for F in ${DOTFILES}; do
     fi
 done
 
+ln -sf ${HOME}/dotconf/gtk-3.0/gtk.css ${HOME}/.config/gtk-3.0/gtk.css
+
 git submodule init
 git submodule update
 # git submodule foreach git pull origin master

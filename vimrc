@@ -2,6 +2,10 @@
 "call pathogen#infect()
 "call pathogen#helptags()
 
+augroup vimrc
+  autocmd!
+augroup END
+
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
@@ -43,7 +47,7 @@ let g:neocomplcache_force_omni_patterns.python = '[^. \t]\.\w*'
 Bundle 'davidhalter/jedi-vim'
 let g:jedi#popup_on_dot = 0
 let g:jedi#popup_select_first = 0
-autocmd  FileType python let b:did_ftplugin = 1
+autocmd vimrc FileType python let b:did_ftplugin = 1
 
 Bundle 'embear/vim-localvimrc'
 let g:localvimrc_sandbox=0
@@ -53,7 +57,7 @@ Bundle 'troydm/easybuffer.vim'
 nnoremap <leader>' :EasyBuffer<cr>
 Bundle 'wikitopian/hardmode'
 let g:HardMode_level='wannabe'
-autocmd VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
+autocmd vimrc VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
 Bundle 'vim-scripts/YankRing.vim'
 let g:yankring_replace_n_nkey=''
@@ -170,6 +174,7 @@ set backspace=2
 " Set different indent settings for Makefiles
 if has("autocmd")
   filetype on
+  augroup vimrc
   autocmd FileType make setlocal ts=4 sts=4 sw=4 noexpandtab
 
   autocmd FileType markdown syn region nospellmarkdown1 start="`" end="`" contains=@NoSpell

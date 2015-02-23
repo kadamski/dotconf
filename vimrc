@@ -188,6 +188,7 @@ if has("autocmd")
   autocmd FileType c,cpp,python nnoremap zi :call FoldToggle()<cr>
   autocmd FileType gitcommit setlocal colorcolumn=72 tw=72 wrap
   autocmd FileType qf syn match qfFileName "<<\S*>>"
+  autocmd FileType mail setlocal tw=72 fo+=aw
 
   " When editing a file, always jump to the last cursor position
   autocmd BufReadPost *

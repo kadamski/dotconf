@@ -353,3 +353,5 @@ set ttymouse=xterm
 
 set splitbelow
 set splitright
+
+let g:syntastic_check_on_wq = 0

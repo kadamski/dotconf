@@ -1,0 +1,14 @@
+[roxterm profile]
+colour_scheme=SolarizedDark
+hide_menubar=1
+show_resize_grip=0
+show_add_tab_btn=0
+always_show_tabs=1
+visible_bell=1
+scrollback_lines=100000
+disable_menu_access=1
+disable_menu_shortcuts=1
+scroll_on_keystroke=1
+win_title=LOCAL
+browser_spawn_type=0
+browser=firefox

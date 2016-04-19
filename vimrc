@@ -1,7 +1,3 @@
-" Initialize pathogen (load plugin bundles):
-"call pathogen#infect()
-"call pathogen#helptags()
-
 augroup vimrc
   autocmd!
 augroup END
@@ -21,25 +17,32 @@ Bundle 'altercation/vim-colors-solarized.git'
 Bundle 'kien/ctrlp.vim.git'
 Bundle 'majutsushi/tagbar'
 Bundle 'tomtom/tcomment_vim.git'
-Bundle 'mileszs/ack.vim'
-Bundle 'rking/ag.vim'
-Bundle 'gtags.vim'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'scrooloose/syntastic'
 Bundle 'mhinz/vim-signify'
 Bundle 'kshenoy/vim-signature'
-Bundle 'mhinz/vim-startify'
-Bundle 'ivalkeen/vim-ctrlp-tjump'
-Bundle 'tpope/vim-repeat'
 Bundle 'matze/vim-move'
-Bundle 'kadamski/vim-lastcurpos'
 Bundle 'bronson/vim-trailing-whitespace'
 Bundle 'sheerun/vim-polyglot'
+Bundle 'mhinz/vim-startify'
+Bundle 'tpope/vim-repeat'
 " Auto indent using heuristics
 Bundle 'tpope/vim-sleuth'
+Bundle 'christoomey/vim-tmux-navigator'
+
+"Staging:
+" Bundle 'mileszs/ack.vim'
+" Bundle 'rking/ag.vim'
+" Bundle 'gtags.vim'
+" Bundle 'ivalkeen/vim-ctrlp-tjump'
+" Bundle 'kadamski/vim-lastcurpos'
+" Bundle 'Lokaltog/vim-easymotion.git'
+" map Q <Plug>(easymotion-prefix)
+" Bundle 'vim-scripts/YankRing.vim'
+" let g:yankring_replace_n_nkey=''
+" let g:yankring_replace_n_pkey='<C-N>'
 
 "Experiments:
-Bundle 'Lokaltog/vim-easymotion.git'
 Bundle 'Shougo/neocomplcache.vim'
 " make Vim call omni function when below patterns matchs
 let g:neocomplcache_force_omni_patterns = {}
@@ -60,12 +63,6 @@ Bundle 'wikitopian/hardmode'
 let g:HardMode_level='wannabe'
 autocmd vimrc VimEnter,BufNewFile,BufReadPost * silent! call HardMode()
 
-Bundle 'vim-scripts/YankRing.vim'
-let g:yankring_replace_n_nkey=''
-let g:yankring_replace_n_pkey='<C-N>'
-
-Bundle 'christoomey/vim-tmux-navigator'
-
 "Checkout:
 "Bundle 'basilgor/vim-autotags'
 "Bundle 'artemave/slowdown.vim'
@@ -81,61 +78,6 @@ Bundle 'christoomey/vim-tmux-navigator'
 "Bundle 'tpope/vim-dispatch'
 "Bundle 'sirver/ultisnips'
 "Bundle 'jceb/vim-editqf'
-
-function! FoldToggle()
-    if &foldenable
-        setlocal nofoldenable
-        setlocal foldcolumn=0
-    else
-        setlocal foldenable
-        setlocal foldcolumn=2
-    endif
-endfunction
-
-function! PreviewClose()
-    for nr in range(1, winnr('$'))
-        if getwinvar(nr, "&pvw") == 1
-            execute ":bdelete " . winbufnr(nr)
-            pclose
-            return nr
-        endif
-    endfor
-    return 0
-endfunction
-
-function! PTagNext()
-    try
-        call PreviewClose()
-        ptnext
-    catch
-    endtry
-endfunction
-
-function! PTagPrev()
-    try
-        call PreviewClose()
-        ptprev
-    catch
-    endtry
-endfunction
-
-function! TagNext()
-    try
-        tnext
-        execute ":bdelete " . bufnr('#')
-        execute ":pedit +" . getpos(".")[1] ." %"
-    catch
-    endtry
-endfunction
-
-function! TagPrev()
-    try
-        tprev
-        execute ":bdelete " . bufnr('#')
-        execute ":pedit +" . getpos(".")[1] ." %"
-    catch
-    endtry
-endfunction
 
 " Show command in bottom-right corner when typing it
 set showcmd
@@ -186,7 +128,6 @@ if has("autocmd")
 
   autocmd FileType c,cpp setlocal foldmethod=syntax colorcolumn=80
   autocmd FileType python setlocal foldmethod=indent
-  autocmd FileType c,cpp,python nnoremap zi :call FoldToggle()<cr>
   autocmd FileType gitcommit setlocal colorcolumn=72 tw=72 wrap
   autocmd FileType qf syn match qfFileName "<<\S*>>"
   autocmd FileType mail setlocal tw=72 fo+=aw
@@ -206,9 +147,6 @@ set sessionoptions+=tabpages
 """""" BUILDIN PLUGINS
 " man support - "Man" command and \K
 runtime! ftplugin/man.vim
-
-"""""" BINDS
-map <F2> :set list!<CR>
 
 set listchars=tab:▸\ ,eol:¬,nbsp:␣,trail:·
 " bash type tab-completion
@@ -257,7 +195,7 @@ colorscheme solarized
 set background=dark
 
 " Folding
-nnoremap <Space> za
+" nnoremap <Space> za
 set foldnestmax=2
 set nofoldenable
 set foldminlines=2
@@ -273,41 +211,26 @@ let g:ctrlp_max_depth = 10
 let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:30'
 
-map Q <Plug>(easymotion-prefix)
 nnoremap <leader><leader> :CtrlPBuffer<cr>
 nnoremap <leader>t :TagbarToggle<cr>
 
 let g:tcommentInlineC = "// %s"
 
-nnoremap <leader>] <C-W>}
-nnoremap <leader>p :ptselect<CR>
-nnoremap ]p :call PTagNext()<CR>
-nnoremap [p :call PTagPrev()<CR>
-
 command! -bar -nargs=0 SudoW   :setl nomod|silent exe 'write !sudo tee %>/dev/null'|let &mod = v:shell_error
 
-"let g:UltiSnipsExpandTrigger="<tab>"
-"let g:UltiSnipsJumpForwardTrigger="<c-b>"
-"let g:UltiSnipsJumpBackwardTrigger="<c-z>"
-
-"g:Gtags_OpenQuickfixWindow
-
-if executable("gtags-cscope")
-    set csprg=gtags-cscope
-    set cscopequickfix=s-,c-,d-,i-,t-,e-,g-
-
-    " find definition
-    nmap <C-\>t :execute "cs find g " . expand("<cword>")<cr>
-    " find callers
-    nmap <C-\>r :execute "cs find c " . expand("<cword>")<cr>
-    " find symbol
-    nmap <C-\>s :execute "cs find s " . expand("<cword>")<cr>
-    " find pattern
-    nmap <C-\>g :execute "cs find e " . expand("<cword>")<cr>
-
-    nnoremap ]t :call TagNext()<CR>
-    nnoremap [t :call TagPrev()<CR>
-endif
+" if executable("gtags-cscope")
+"     set csprg=gtags-cscope
+"     set cscopequickfix=s-,c-,d-,i-,t-,e-,g-
+"
+"     " find definition
+"     nmap <C-\>t :execute "cs find g " . expand("<cword>")<cr>
+"     " find callers
+"     nmap <C-\>r :execute "cs find c " . expand("<cword>")<cr>
+"     " find symbol
+"     nmap <C-\>s :execute "cs find s " . expand("<cword>")<cr>
+"     " find pattern
+"     nmap <C-\>g :execute "cs find e " . expand("<cword>")<cr>
+" endif
 
 let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_min_syntax_length = 3

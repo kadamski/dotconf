@@ -32,3 +32,5 @@ fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 HISTFILESIZE=10000
+
+alias n="nemo --no-desktop"

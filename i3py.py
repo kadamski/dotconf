@@ -68,15 +68,15 @@ status.register("temp",
 #
 # Note: the network module requires PyPI package netifaces
 status.register("network",
-    interface="em1",
+    interface="enp0s25",
     format_up="{v4cidr}",)
 
 # Has all the options of the normal network and adds some wireless specific things
 # like quality and network names.
 #
 # Note: requires both netifaces and basiciw
-status.register("wireless",
-    interface="wlp2s0",
+status.register("network",
+    interface="wlp3s0",
     format_up="{essid} {quality:03.0f}%",)
 
 # Shows disk usage of /
@@ -92,6 +92,8 @@ status.register("disk",
 # Note: requires libpulseaudio from PyPI
 status.register("backlight",
     format="☼ {percentage:.0f}%",
+    on_upscroll="xbacklight +5",
+    on_downscroll="xbacklight -5",
     backlight='intel_backlight')
 
 status.register("pulseaudio",

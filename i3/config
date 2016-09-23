@@ -153,6 +153,9 @@ bar {
         font pango:DejaVu Sans Mono 10
 }
 
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show
+
 #
 # MY STUFF
 #

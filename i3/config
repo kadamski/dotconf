@@ -85,10 +85,14 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+d focus child
 
+set $WORKSPACE1 1: term
+set $WORKSPACE2 2: www
+set $WORKSPACE3 3: mail
+
 # switch to workspace
-bindsym $mod+1 workspace 1: term
-bindsym $mod+2 workspace 2: www
-bindsym $mod+3 workspace 3: mail
+bindsym $mod+1 workspace $WORKSPACE1
+bindsym $mod+2 workspace $WORKSPACE2
+bindsym $mod+3 workspace $WORKSPACE3
 bindsym $mod+4 workspace 4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
@@ -98,9 +102,9 @@ bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1: term
-bindsym $mod+Shift+2 move container to workspace 2: www
-bindsym $mod+Shift+3 move container to workspace 3: mail
+bindsym $mod+Shift+1 move container to workspace $WORKSPACE1
+bindsym $mod+Shift+2 move container to workspace $WORKSPACE2
+bindsym $mod+Shift+3 move container to workspace $WORKSPACE3
 bindsym $mod+Shift+4 move container to workspace 4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
@@ -170,9 +174,9 @@ exec --no-startup-id pasystray
 # xprop
 for_window [class="B2g"] floating enable
 
-assign [class="Firefox"] 2: www
-assign [class="Claws-mail"] 3: mail
-assign [class="Mail"] 3: mail
+assign [class="Firefox"] $WORKSPACE2
+assign [class="Claws-mail"] $WORKSPACE3
+assign [class="Mail"] $WORKSPACE3
 
 #exec 'dbus-send --session --print-reply=string --dest=org.gnome.SessionManager "/org/gnome/SessionManager" org.gnome.SessionManager.RegisterClient "string:i3" "string:$DESKTOP_AUTOSTART_ID"'
 #exec echo ".i3/config: DESKTOP_AUTOSTART_ID $DESKTOP_AUTOSTART_ID, registering with org.gnome.SessionManager"

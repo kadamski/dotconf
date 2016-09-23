@@ -10,7 +10,8 @@ status = Status(standalone=True)
 #                          ^-- calendar week
 status.register("clock",
                 format="%a %d.%m %H:%M",
-                interval = 5)
+                interval = 5,
+                on_leftclick = "zenity --calendar")
 
 # The battery monitor has many formatting options, see README for details
 

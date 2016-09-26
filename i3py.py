@@ -1,6 +1,9 @@
 #!/home/k/virtualenvs/i3pystatus/bin/python3
 from i3pystatus import Status
+from i3pystatus.mail import imap
 import locale
+import os.path
+import configparser
 locale.setlocale(locale.LC_ALL, 'pl_PL')
 
 status = Status(standalone=True)
@@ -91,13 +94,37 @@ status.register("disk",
 # Shows pulseaudio default sink volume
 #
 # Note: requires libpulseaudio from PyPI
-status.register("backlight",
-    format="☼ {percentage:.0f}%",
-    on_upscroll="xbacklight +5",
-    on_downscroll="xbacklight -5",
-    backlight='intel_backlight')
+backlight_driver = None
+for bd in ('amdgpu_bl0', 'intel_backlight'):
+    if os.path.exists('/sys/class/backlight/{}'.format(bd)):
+        backlight_driver = bd
+        break
+
+if backlight_driver:
+    status.register("backlight",
+        format="☼ {percentage:.0f}%",
+        on_upscroll="xbacklight +5",
+        on_downscroll="xbacklight -5",
+        backlight=backlight_driver)
 
 status.register("pulseaudio",
     format="♪ {volume}%",)
+
+config = configparser.ConfigParser()
+config.read('{}/.i3/config-private.ini'.format(os.path.expanduser('~')))
+try:
+    status.register('mail',
+                    backends=[imap.IMAP(
+                        host=config.get('mail', 'host'),
+                        username=config.get('mail', 'user'),
+                        password=config.get('mail', 'pass'),
+                    )],
+                    interval=30,
+                    format='M {unread}',
+                    format_plural='M {unread}',
+                    log_level=20,
+                    hide_if_null=False, )
+except (NoOptionError, NoSectionError):
+   pass
 
 status.run()

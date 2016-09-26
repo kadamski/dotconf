@@ -1,7 +1,9 @@
 #!/home/k/virtualenvs/i3pystatus/bin/python3
 from i3pystatus import Status
+from i3pystatus.mail import imap
 import locale
 import os.path
+import configparser
 locale.setlocale(locale.LC_ALL, 'pl_PL')
 
 status = Status(standalone=True)
@@ -107,5 +109,21 @@ if backlight_driver:
 
 status.register("pulseaudio",
     format="♪ {volume}%",)
+
+config = configparser.ConfigParser()
+config.read('{}/.i3/config-private.ini'.format(os.path.expanduser('~')))
+try:
+    status.register('mail',
+                    backends=[imap.IMAP(
+                        host=config.get('mail', 'host'),
+                        username=config.get('mail', 'user'),
+                        password=config.get('mail', 'pass'),
+                    )],
+                    interval=30,
+                    format='P {unread}',
+                    log_level=20,
+                    hide_if_null=False, )
+except (NoOptionError, NoSectionError):
+   pass
 
 status.run()

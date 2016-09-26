@@ -120,7 +120,8 @@ try:
                         password=config.get('mail', 'pass'),
                     )],
                     interval=30,
-                    format='P {unread}',
+                    format='M {unread}',
+                    format_plural='M {unread}',
                     log_level=20,
                     hide_if_null=False, )
 except (NoOptionError, NoSectionError):

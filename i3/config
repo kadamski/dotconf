@@ -153,6 +153,7 @@ bar {
 # MY STUFF
 #
 bindsym $mod+Shift+f border toggle
+bindsym Control+$mod+l exec i3lock -c 444444 -e
 
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
@@ -162,13 +163,13 @@ bindsym XF86MonBrightnessUp exec xbacklight + 5
 bindsym XF86MonBrightnessDown exec xbacklight - 5
 bindsym --release XF86AudioMute exec amixer -q set Master toggle
 
-# exec --no-startup-id nm-applet
 exec --no-startup-id xsetroot -solid "#333333"
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
 
 # xprop
 for_window [class="B2g"] floating enable
+for_window [class="Pidgin"] floating enable
 
 assign [class="Firefox"] 2: www
 assign [class="Claws-mail"] 3: mail

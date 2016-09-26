@@ -1,6 +1,7 @@
 #!/home/k/virtualenvs/i3pystatus/bin/python3
 from i3pystatus import Status
 import locale
+import os.path
 locale.setlocale(locale.LC_ALL, 'pl_PL')
 
 status = Status(standalone=True)
@@ -91,11 +92,18 @@ status.register("disk",
 # Shows pulseaudio default sink volume
 #
 # Note: requires libpulseaudio from PyPI
-status.register("backlight",
-    format="☼ {percentage:.0f}%",
-    on_upscroll="xbacklight +5",
-    on_downscroll="xbacklight -5",
-    backlight='intel_backlight')
+backlight_driver = None
+for bd in ('amdgpu_bl0', 'intel_backlight'):
+    if os.path.exists('/sys/class/backlight/{}'.format(bd)):
+        backlight_driver = bd
+        break
+
+if backlight_driver:
+    status.register("backlight",
+        format="☼ {percentage:.0f}%",
+        on_upscroll="xbacklight +5",
+        on_downscroll="xbacklight -5",
+        backlight=backlight_driver)
 
 status.register("pulseaudio",
     format="♪ {volume}%",)

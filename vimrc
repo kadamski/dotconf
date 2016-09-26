@@ -211,9 +211,6 @@ let g:ctrlp_max_depth = 10
 let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:30'
 
-nnoremap <leader><leader> :CtrlPBuffer<cr>
-nnoremap <leader>t :TagbarToggle<cr>
-
 let g:tcommentInlineC = "// %s"
 
 command! -bar -nargs=0 SudoW   :setl nomod|silent exe 'write !sudo tee %>/dev/null'|let &mod = v:shell_error
@@ -240,9 +237,6 @@ inoremap <c-w> <c-g>u<c-w>
 
 nnoremap gs :call search('\s\+', 'W')<cr>
 nnoremap gS :call search('\s\+', 'bW')<cr>
-
-nnoremap <c-]> :CtrlPtjump<cr>
-vnoremap <c-]> :CtrlPtjumpVisual<cr>
 
 " vim-move
 let g:move_map_keys = 1

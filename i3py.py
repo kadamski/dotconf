@@ -124,7 +124,7 @@ try:
                     format_plural='M {unread}',
                     log_level=20,
                     hide_if_null=False, )
-except (NoOptionError, NoSectionError):
+except (configparser.NoOptionError, configparser.NoSectionError):
    pass
 
 status.run()

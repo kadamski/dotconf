@@ -2,6 +2,7 @@
 cd `dirname $0`
 
 DOTFILES='screenrc vimrc vim tmux.conf bashrc i3status.conf i3/config zshrc gitconfig vimperator'
+DOTCONFIGFILES='gtk-3.0/gtk.css dust nvim'
 
 for F in ${DOTFILES}; do
     if [ ! -e ${HOME}/.${F} ]; then
@@ -10,7 +11,11 @@ for F in ${DOTFILES}; do
     fi
 done
 
-ln -sf ${HOME}/dotconf/gtk-3.0/gtk.css ${HOME}/.config/gtk-3.0/gtk.css
+for F in ${DOTCONFIGFILES}; do
+    if [ ! -e ${HOME}/.config/${F} ]; then
+        ln -sf ${HOME}/dotconf/${F} ${HOME}/.config/${F}
+    fi
+done
 
 git submodule init
 git submodule update

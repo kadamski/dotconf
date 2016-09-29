@@ -17,6 +17,7 @@ Plug 'neomake/neomake'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-vinegar'
 
 call plug#end()
 
@@ -39,6 +40,9 @@ set ts=4 sw=4 sts=4 expandtab
 " bash type tab-completion
 set wildmode=longest,list
 set completeopt=longest,menu,preview
+
+" Exit from terminal with ESC
+tnoremap <Esc> <C-\><C-n>
 
 " PLUGINS CONFIGURATION
 let g:airline_theme="solarized"
@@ -89,3 +93,6 @@ let g:ctrlp_max_depth = 10
 let g:ctrlp_open_new_file = 'r'
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:30'
 nnoremap <leader><leader> :CtrlPBuffer<cr>
+
+" vinegar
+let g:netrw_banner = 1

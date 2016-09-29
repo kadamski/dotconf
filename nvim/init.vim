@@ -15,6 +15,8 @@ Plug 'troydm/easybuffer.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'neomake/neomake'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-repeat'
 
 call plug#end()
 
@@ -80,4 +82,10 @@ let g:startify_list_order = [
 
 nnoremap <leader>' :EasyBuffer<cr>
 
-autocmd! BufWritePost * Neomake
+let g:ycm_confirm_extra_conf = 1
+
+let g:ctrlp_max_files = 50000
+let g:ctrlp_max_depth = 10
+let g:ctrlp_open_new_file = 'r'
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:30'
+nnoremap <leader><leader> :CtrlPBuffer<cr>

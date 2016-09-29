@@ -1,59 +1,36 @@
-export ZSH=$HOME/.oh-my-zsh
+zstyle ':completion:*' completer _complete _ignored
+zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
+zstyle :compinstall filename '/home/k/.zshrc'
 
-ZSH_CUSTOM=$HOME/dotconf/zsh_custom/
+autoload -Uz compinit
+compinit
 
-ZSH_THEME="3den"
-ZSH_THEME="intheloop"
-ZSH_THEME="frisk"
-ZSH_THEME="k"
-#ZSH_THEME="random"
+HISTFILE=~/.histfile
+HISTSIZE=100000
+SAVEHIST=100000
+setopt appendhistory
+bindkey -e
 
-# Set this to use case-sensitive completion
-CASE_SENSITIVE="true"
+bindkey ';5D' emacs-backward-word
+bindkey ';5C' emacs-forward-word
+setopt noautomenu
+setopt share_history
+setopt hist_ignore_dups
 
-# Uncomment following line if you want to disable autosetting terminal title.
-DISABLE_AUTO_TITLE="true"
+up-line-or-local-history() {
+    zle set-local-history 1
+    zle up-line-or-history
+    zle set-local-history 0
+}
+zle -N up-line-or-local-history
+down-line-or-local-history() {
+    zle set-local-history 1
+    zle down-line-or-history
+    zle set-local-history 0
+}
+zle -N down-line-or-local-history
 
-# Uncomment following line if you want to disable command autocorrection
-DISABLE_CORRECTION="true"
-
-plugins=(git, vi-mode)
-
-source $ZSH/oh-my-zsh.sh
-
-#############################################################
-
-export PATH=$HOME/bin:/usr/local/bin:$PATH
-export EDITOR=vim
-
-APPEND_HISTORY="true"
-SHARE_HISTORY="true"
-KEYTIMEOUT=1
-
-# MODE_INDICATOR="%{$fg_bold[white]%}--N--%{$reset_color%}"
-
-typeset -A key
-bindkey '^R' history-incremental-pattern-search-backward
-bindkey '^S' history-incremental-pattern-search-forward
-
-bindkey -a u undo
-bindkey -a '^R' redo
-bindkey '^?' backward-delete-char
-bindkey '^H' backward-delete-char
-bindkey '^G' what-cursor-position
-bindkey -a 'gg' beginning-of-buffer-or-history
-bindkey -a G end-of-buffer-or-history
-bindkey '^P' up-history
-bindkey '^N' down-history
-
-bindkey $terminfo[kich1]  overwrite-mode
-bindkey -a $terminfo[kich1]  overwrite-mode
-bindkey $terminfo[kdch1]  delete-char
-bindkey -a $terminfo[kdch1]  delete-char
-
-bindkey $terminfo[khome] vi-beginning-of-line
-bindkey -a $terminfo[khome] vi-beginning-of-line
-
-bindkey $terminfo[kend] vi-end-of-line
-bindkey -a $terminfo[kend] vi-end-of-line
-
+bindkey '^[[A' up-line-or-local-history     # Cursor up
+bindkey '^[[B' down-line-or-local-history   # Cursor down
+bindkey '^[[1;5A' up-line-or-history    # [CTRL] + Cursor up
+bindkey '^[[1;5B' down-line-or-history  # [CTRL] + Cursor down

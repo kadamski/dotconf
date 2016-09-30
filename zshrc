@@ -22,7 +22,6 @@ key[Right]=${terminfo[kcuf1]}
 key[PageUp]=${terminfo[kpp]}
 key[PageDown]=${terminfo[knp]}
 
-setopt appendhistory
 bindkey -e
 
 bindkey '^[[1;5D' emacs-backward-word
@@ -36,6 +35,7 @@ bindkey '^[[1;5C' emacs-forward-word
 
 setopt noautomenu
 setopt share_history
+setopt appendhistory
 setopt hist_ignore_dups
 
 up-line-or-local-history() {
@@ -55,3 +55,12 @@ bindkey '^[[A' up-line-or-local-history     # Cursor up
 bindkey '^[[B' down-line-or-local-history   # Cursor down
 bindkey '^[[1;5A' up-line-or-history    # [CTRL] + Cursor up
 bindkey '^[[1;5B' down-line-or-history  # [CTRL] + Cursor down
+
+# Stack all cd's
+setopt AUTO_PUSHD
+
+# For better ctrl-w
+autoload -U select-word-style
+select-word-style bash
+
+export EDITOR=vim

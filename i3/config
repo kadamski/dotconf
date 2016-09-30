@@ -1,5 +1,11 @@
 set $mod Mod4
 
+set $WORKSPACE1 1: term
+set $WORKSPACE2 2: www
+set $WORKSPACE3 3: mail
+
+set $I3LOCK i3lock -e -c 444444
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below. ISO 10646 = Unicode
 font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -85,10 +91,6 @@ bindsym $mod+a focus parent
 # focus the child container
 bindsym $mod+d focus child
 
-set $WORKSPACE1 1: term
-set $WORKSPACE2 2: www
-set $WORKSPACE3 3: mail
-
 # switch to workspace
 bindsym $mod+1 workspace $WORKSPACE1
 bindsym $mod+2 workspace $WORKSPACE2
@@ -160,7 +162,7 @@ bindsym $mod+minus scratchpad show
 # MY STUFF
 #
 bindsym $mod+Shift+f border toggle
-bindsym Control+$mod+l exec i3lock -c 444444 -e
+bindsym Control+$mod+l exec $I3LOCK
 
 bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- unmute
@@ -173,6 +175,7 @@ bindsym --release XF86AudioMute exec amixer -q set Master toggle
 exec --no-startup-id xsetroot -solid "#333333"
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
+exec --no-startup-id xautolock -time 60 -locker $I3LOCK
 
 # xprop
 for_window [class="B2g"] floating enable

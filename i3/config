@@ -177,6 +177,7 @@ exec --no-startup-id xsetroot -solid "#333333"
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
 exec --no-startup-id xautolock -time 5 -locker $I3LOCK
+exec --no-startup-id setxkbmap -option ctrl:nocaps
 
 # xprop
 for_window [class="B2g"] floating enable

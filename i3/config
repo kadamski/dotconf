@@ -3,6 +3,7 @@ set $mod Mod4
 set $WORKSPACE1 1: term
 set $WORKSPACE2 2: www
 set $WORKSPACE3 3: mail
+set $WORKSPACE4 4: IM
 
 set $I3LOCK i3lock -e -c 444444
 
@@ -95,7 +96,7 @@ bindsym $mod+d focus child
 bindsym $mod+1 workspace $WORKSPACE1
 bindsym $mod+2 workspace $WORKSPACE2
 bindsym $mod+3 workspace $WORKSPACE3
-bindsym $mod+4 workspace 4
+bindsym $mod+4 workspace $WORKSPACE4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -107,7 +108,7 @@ bindsym $mod+0 workspace 10
 bindsym $mod+Shift+1 move container to workspace $WORKSPACE1
 bindsym $mod+Shift+2 move container to workspace $WORKSPACE2
 bindsym $mod+Shift+3 move container to workspace $WORKSPACE3
-bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+4 move container to workspace $WORKSPACE4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
@@ -175,7 +176,7 @@ bindsym --release XF86AudioMute exec amixer -q set Master toggle
 exec --no-startup-id xsetroot -solid "#333333"
 exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
-exec --no-startup-id xautolock -time 60 -locker $I3LOCK
+exec --no-startup-id xautolock -time 5 -locker $I3LOCK
 
 # xprop
 for_window [class="B2g"] floating enable

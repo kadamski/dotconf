@@ -34,6 +34,7 @@ bindkey '^[[1;5C' emacs-forward-word
 [[ -n "${key[Right]}"   ]]  && bindkey  "${key[Right]}"   forward-char
 
 setopt noautomenu
+
 setopt share_history
 setopt appendhistory
 setopt hist_ignore_dups
@@ -58,9 +59,12 @@ bindkey '^[[1;5B' down-line-or-history  # [CTRL] + Cursor down
 
 # Stack all cd's
 setopt AUTO_PUSHD
+# CD into directories without "cd" command
+setopt AUTO_CD
 
 # For better ctrl-w
 autoload -U select-word-style
 select-word-style bash
 
-export EDITOR=vim
+# Shift-tab undo
+bindkey '^[[Z' undo

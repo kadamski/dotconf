@@ -12,3 +12,4 @@ scroll_on_keystroke=1
 win_title=LOCAL
 browser_spawn_type=0
 browser=firefox
+font=Monospace 9

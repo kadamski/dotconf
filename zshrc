@@ -71,3 +71,5 @@ bindkey '^[[Z' undo
 # Use any key to escape from ctrl-s
 unsetopt flow_control
 bindkey '^Q' beginning-of-line
+
+export EDITOR=nvim

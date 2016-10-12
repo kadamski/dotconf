@@ -31,6 +31,7 @@ set ruler
 " Briefly jum to matching (
 set showmatch
 set mouse=a
+set undofile
 
 set number
 set relativenumber

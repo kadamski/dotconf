@@ -72,4 +72,5 @@ bindkey '^[[Z' undo
 unsetopt flow_control
 bindkey '^Q' beginning-of-line
 
+export PATH=~/bin/:~/bin/neovim/bin/:$PATH
 export EDITOR=nvim

@@ -18,6 +18,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-vinegar'
+Plug 'mileszs/ack.vim'
 
 call plug#end()
 
@@ -96,3 +97,7 @@ nnoremap <leader><leader> :CtrlPBuffer<cr>
 
 " vinegar
 let g:netrw_banner = 1
+
+"Bautocmd! BufWritePost * Neomake
+
+let g:ack_autoclose = 1

@@ -18,6 +18,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-fugitive'
 Plug 'mileszs/ack.vim'
 
 call plug#end()
@@ -32,6 +33,7 @@ set ruler
 " Briefly jum to matching (
 set showmatch
 set mouse=a
+set undofile
 
 set number
 set relativenumber

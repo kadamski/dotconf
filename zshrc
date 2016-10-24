@@ -73,3 +73,4 @@ unsetopt flow_control
 bindkey '^Q' beginning-of-line
 
 export EDITOR=nvim
+[[ $- = *i* ]] && source ~/dotconf/external/liquidprompt/liquidprompt

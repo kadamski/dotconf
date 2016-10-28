@@ -26,6 +26,8 @@ bindkey -e
 
 bindkey '^[[1;5D' emacs-backward-word
 bindkey '^[[1;5C' emacs-forward-word
+bindkey '^[[H' beginning-of-line
+bindkey '^[[F' end-of-line
 [[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"    beginning-of-line
 [[ -n "${key[End]}"     ]]  && bindkey  "${key[End]}"     end-of-line
 [[ -n "${key[Insert]}"  ]]  && bindkey  "${key[Insert]}"  overwrite-mode

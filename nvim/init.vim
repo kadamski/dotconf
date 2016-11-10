@@ -41,6 +41,8 @@ set relativenumber
 
 set ts=4 sw=4 sts=4 expandtab
 
+set clipboard=unnamedplus
+
 " bash type tab-completion
 set wildmode=longest,list
 set completeopt=longest,menu,preview

@@ -20,6 +20,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
 Plug 'mileszs/ack.vim'
+Plug 'racer-rust/vim-racer'
 
 call plug#end()
 
@@ -103,3 +104,8 @@ let g:netrw_banner = 1
 "Bautocmd! BufWritePost * Neomake
 
 let g:ack_autoclose = 1
+
+"racer
+let g:racer_cmd = "~/BUILD/racer/target/release/racer"
+let g:racer_experimental_completer = 1
+let $RUST_SRC_PATH="/home/k/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"

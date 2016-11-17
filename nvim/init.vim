@@ -42,6 +42,7 @@ set relativenumber
 set ts=4 sw=4 sts=4 expandtab
 
 set clipboard=unnamedplus
+set path+=**
 
 " bash type tab-completion
 set wildmode=longest,list

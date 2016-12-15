@@ -24,6 +24,10 @@ Plug 'racer-rust/vim-racer'
 
 call plug#end()
 
+if has("termguicolors")
+    set termguicolors
+endif
+
 set background=dark
 colorscheme solarized8_dark
 

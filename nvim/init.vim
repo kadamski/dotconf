@@ -1,7 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
 
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'altercation/vim-colors-solarized'
+Plug 'lifepillar/vim-solarized8'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'mhinz/vim-startify'
@@ -25,7 +25,7 @@ Plug 'racer-rust/vim-racer'
 call plug#end()
 
 set background=dark
-colorscheme solarized
+colorscheme solarized8_dark
 
 set listchars=tab:▸\ ,eol:¬,nbsp:␣,trail:·
 set hidden

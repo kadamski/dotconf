@@ -21,6 +21,7 @@ Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
 Plug 'mileszs/ack.vim'
 Plug 'racer-rust/vim-racer'
+Plug 'morhetz/gruvbox'
 
 call plug#end()
 
@@ -29,7 +30,9 @@ if has("termguicolors")
 endif
 
 set background=dark
+"colorscheme gruvbox
 colorscheme solarized8_dark
+"colorscheme murphy
 
 set listchars=tab:▸\ ,eol:¬,nbsp:␣,trail:·
 set hidden

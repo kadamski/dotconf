@@ -273,3 +273,9 @@ set splitbelow
 set splitright
 
 let g:syntastic_check_on_wq = 0
+
+Bundle 'racer-rust/vim-racer'
+"racer
+let g:racer_cmd = "~/BUILD/racer/target/release/racer"
+let g:racer_experimental_completer = 1
+let $RUST_SRC_PATH="/home/k/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/"

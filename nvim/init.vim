@@ -14,12 +14,14 @@ Plug 'sheerun/vim-polyglot'
 Plug 'troydm/easybuffer.vim'
 Plug 'kshenoy/vim-signature'
 Plug 'neomake/neomake'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-vinegar'
 Plug 'tpope/vim-fugitive'
 Plug 'mileszs/ack.vim'
+Plug 'gregsexton/gitv'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'racer-rust/vim-racer'
 Plug 'morhetz/gruvbox'
 
@@ -114,6 +116,10 @@ let g:netrw_banner = 1
 "Bautocmd! BufWritePost * Neomake
 
 let g:ack_autoclose = 1
+
+let g:Gitv_DoNotMapCtrlKey = 1
+
+let g:deoplete#enable_at_startup = 1
 
 "racer
 let g:racer_cmd = "~/BUILD/racer/target/release/racer"

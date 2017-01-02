@@ -1,5 +1,5 @@
 set alias_file = ~/.mutt-alias
-set mailcap_path = "/etc/mailcap"
+set mailcap_path = "~/dotconf/mutt/mailcap"
 set header_cache="~/.mutt-headercache/"
 source $alias_file
 
@@ -34,6 +34,8 @@ bind index _ collapse-all
 bind index ] next-new-then-unread
 bind index [ previous-unread
 
+set mail_check_stats
+
 macro index S "<enter-command>unset wait_key<enter><shell-escape>/home/k/dotconf/mutt/notmuch.sh<enter><change-folder-readonly>+temporary.Search<enter>" "search mail (using notmuch)"
 macro index,pager y "<change-folder>?<toggle-mailboxes>" "show incoming mailboxes list"
 
@@ -64,10 +66,11 @@ set index_format = " %Z %{%b %d} %-15.15L %?M?+[%M] ?%s"
 unset collapse_unread
 
 # SIDEBAR
-set sidebar_shortpath
-set sidebar_width = 20
+set sidebar_short_path
+set sidebar_width = 28
 set sidebar_visible = yes
-set sidebar_folderindent = yes
+set sidebar_folder_indent = yes
+set sidebar_indent_string = " "
 set sidebar_format = "%B%?F? [%F]?%* %4S%?N?(%N)?"
 macro index b '<enter-command>toggle sidebar_visible<enter><refresh>'
 macro pager b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
@@ -75,9 +78,9 @@ bind index B bounce-message
 
 color sidebar_new yellow default
 
-bind index,pager,postpone <up> sidebar-prev
-bind index,pager,postpone <down> sidebar-next
-bind index,pager,postpone <right> sidebar-open
+bind index,pager <up> sidebar-prev
+bind index,pager <down> sidebar-next
+bind index,pager <right> sidebar-open
 bind generic <left> noop
 #bind pager \CK sidebar-prev
 #bind pager \CJ sidebar-next

@@ -1,0 +1,95 @@
+set alias_file = ~/.mutt-alias
+set mailcap_path = "/etc/mailcap"
+set header_cache="~/.mutt-headercache/"
+source $alias_file
+
+set history = 1000
+set save_history = 1000
+
+set charset = utf-8
+set timeout = 10
+set move = no
+set quit = ask-yes
+set mark_old = no
+set reply_self = no
+set imap_idle
+unset imap_passive
+set text_flowed = yes
+set abort_unmodified = no
+
+bind index,postpone gg first-entry
+bind pager gg top
+bind index,postpone G last-entry
+bind pager G bottom
+bind index,pager R group-reply
+bind index \cr recall-message
+bind pager j next-line
+bind pager k previous-line
+bind index <tab> sync-mailbox
+bind index,pager N search-opposite
+bind index h toggle-new
+bind index H read-thread
+bind index <space>  collapse-thread
+bind index _ collapse-all
+bind index ] next-new-then-unread
+bind index [ previous-unread
+
+macro index S "<enter-command>unset wait_key<enter><shell-escape>/home/k/dotconf/mutt/notmuch.sh<enter><change-folder-readonly>+temporary.Search<enter>" "search mail (using notmuch)"
+macro index,pager y "<change-folder>?<toggle-mailboxes>" "show incoming mailboxes list"
+
+# COMPOSE:
+set use_envelope_from = yes
+set ispell="aspell -e -c -l en_En"
+
+# PAGER:
+set markers = no
+set pager_stop
+set implicit_autoview
+set pager_context = 8
+set pager_index_lines = 6
+set pager = "builtin"
+set recall = no
+set tilde
+ignore *
+unignore from: subject to cc date x-mailer x-url user-agent
+hdr_order date from to cc subject
+
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
+# INDEX
+set sort = threads
+set sort_aux = last-date
+set index_format = " %Z %{%b %d} %-15.15L %?M?+[%M] ?%s"
+unset collapse_unread
+
+# SIDEBAR
+set sidebar_shortpath
+set sidebar_width = 20
+set sidebar_visible = yes
+set sidebar_folderindent = yes
+set sidebar_format = "%B%?F? [%F]?%* %4S%?N?(%N)?"
+macro index b '<enter-command>toggle sidebar_visible<enter><refresh>'
+macro pager b '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
+bind index B bounce-message
+
+color sidebar_new yellow default
+
+bind index,pager,postpone <up> sidebar-prev
+bind index,pager,postpone <down> sidebar-next
+bind index,pager,postpone <right> sidebar-open
+bind generic <left> noop
+#bind pager \CK sidebar-prev
+#bind pager \CJ sidebar-next
+#bind pager \CO sidebar-open
+
+set indent_string = ">_"
+
+source ~/dotconf/mutt/mutt-colors-solarized-light-16.muttrc
+source ~/.mutt-private
+
+# folder-hook 'localhost' 'source ~/.mutt-private'
+# folder-hook 'imap.gmail.com' source ~/.mutt-private-tieto'
+
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt-private<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt-private-tieto<enter><change-folder>!<enter>'

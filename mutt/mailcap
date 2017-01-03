@@ -1,1 +1,5 @@
+text/html; firefox %s >/dev/null 2>&1; needsterminal; test=test -n "$DISPLAY"
 text/html; w3m -I %{charset} -T text/html; copiousoutput;
+application/pdf; evince %s >/dev/null 2>&1; needsterminal; test=test -n "$DISPLAY"
+application/pdf; pdftohtml -q -stdout %s | w3m -T text/html; copiousoutput
+image/*; feh '%s'; test=test -n "$DISPLAY"

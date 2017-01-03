@@ -46,7 +46,7 @@ set ispell="aspell -e -c -l en_En"
 # PAGER:
 set markers = no
 set pager_stop
-set implicit_autoview
+#set implicit_autoview
 set pager_context = 8
 set pager_index_lines = 6
 set pager = "builtin"

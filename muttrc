@@ -42,6 +42,7 @@ macro index,pager y "<change-folder>?<toggle-mailboxes>" "show incoming mailboxe
 # COMPOSE:
 set use_envelope_from = yes
 set ispell="aspell -e -c -l en_En"
+set edit_headers
 
 # PAGER:
 set markers = no

@@ -64,7 +64,7 @@ alternative_order text/plain text/enriched text/html
 # INDEX
 set sort = threads
 set sort_aux = last-date
-set index_format = " %Z %{%b %d} %-15.15L %?M?+[%M] ?%s"
+set index_format = " %Z %?X?%X&-? %{%b %d} %-15.15L %?M?+[%M] ?%s"
 unset collapse_unread
 
 # SIDEBAR

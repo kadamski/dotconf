@@ -125,3 +125,5 @@ let g:deoplete#enable_at_startup = 1
 let g:racer_cmd = "~/BUILD/racer/target/release/racer"
 let g:racer_experimental_completer = 1
 let $RUST_SRC_PATH="~/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src"
+
+autocmd BufReadPost * if line("'\"") > 0 && line ("'\"") <= line("$") |   exe "normal! g'\"" | endif

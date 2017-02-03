@@ -25,3 +25,6 @@
 [submodule "external/liquidprompt"]
 	path = external/liquidprompt
 	url = https://github.com/nojhan/liquidprompt.git
+[submodule "tmux/plugins/tpm"]
+	path = tmux/plugins/tpm
+	url = https://github.com/tmux-plugins/tpm.git

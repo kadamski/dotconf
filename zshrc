@@ -79,3 +79,5 @@ export EDITOR=nvim
 [[ $- = *i* ]] && source ~/dotconf/external/liquidprompt/liquidprompt
 
 alias vim=nvim
+
+export $(gnome-keyring-daemon -s)

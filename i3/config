@@ -180,6 +180,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id pasystray
 exec --no-startup-id xautolock -time 5 -locker $I3LOCK
 exec --no-startup-id setxkbmap -option ctrl:nocaps
+exec --no-startup-id gnome-keyring-daemon -s
 
 # xprop
 for_window [class="B2g"] floating enable

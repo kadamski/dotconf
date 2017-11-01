@@ -182,6 +182,7 @@ exec --no-startup-id xautolock -time 5 -locker $I3LOCK
 exec --no-startup-id setxkbmap -option ctrl:nocaps
 exec --no-startup-id gnome-keyring-daemon -s
 exec --no-startup-id udiskie --tray
+exec --no-startup-id usbguard-applet-qt
 
 # xprop
 for_window [class="B2g"] floating enable

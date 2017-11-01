@@ -1,6 +1,7 @@
 set alias_file = ~/.mutt-alias
 set mailcap_path = "~/dotconf/mutt/mailcap"
 set header_cache="~/.mutt-headercache/"
+set message_cachedir = $header_cache
 source $alias_file
 
 set history = 1000

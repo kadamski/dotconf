@@ -28,3 +28,6 @@
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
+[submodule "external/fzf"]
+	path = external/fzf
+	url = https://github.com/junegunn/fzf.git

@@ -22,7 +22,23 @@ key[Right]=${terminfo[kcuf1]}
 key[PageUp]=${terminfo[kpp]}
 key[PageDown]=${terminfo[knp]}
 
-bindkey -e
+bindkey -v
+
+bindkey '^R' history-incremental-search-backward
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^w' backward-kill-word
+
+RPS1="dupa"
+function zle-line-init zle-keymap-select {
+    VIM_PROMPT="%{$fg_bold[yellow]%} [% NORMAL]% %{$reset_color%}"
+    RPS1=${${KEYMAP/vicmd/$VIM_PROMPT}/(main|viins)/}
+    zle reset-prompt
+}
+
+zle -N zle-line-init
+zle -N zle-keymap-select
+export KEYTIMEOUT=1
 
 bindkey '^[[1;5D' emacs-backward-word
 bindkey '^[[1;5C' emacs-forward-word

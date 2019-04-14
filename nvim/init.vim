@@ -131,3 +131,5 @@ autocmd BufReadPost * if line("'\"") > 0 && line ("'\"") <= line("$") |   exe "n
 " Save statrtify session called LAST if closing vim with more than 1 buffer
 " open
 autocmd VimLeave *  if !v:dying | if len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) > 1 | SDelete! LAST | SSave LAST | endif | endif
+
+autocmd FileType gitcommit setlocal spell

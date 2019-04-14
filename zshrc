@@ -97,3 +97,11 @@ export EDITOR=nvim
 alias vim=nvim
 
 export $(gnome-keyring-daemon -s)
+
+[ -f /usr/share/fzf/shell/key-bindings.zsh ] && source /usr/share/fzf/shell/key-bindings.zsh
+
+setopt hist_ignore_dups
+
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '^x^e' edit-command-line

@@ -1,0 +1,81 @@
+set $mod Mod4
+floating_modifier $mod
+input * xkb_layout "pl"
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'You pressed the exit shortcut. This will end your X session?' -b 'Yes, exit sway' 'swaymsg exit'"
+
+# look
+titlebar_padding 1 1
+default_border pixel
+smart_borders on
+smart_gaps on
+gaps inner 3
+
+# Window manipulation
+bindsym $mod+Shift+q kill
+
+# Focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Workspaces
+set $WORKSPACE1 1:term
+set $WORKSPACE2 2:www
+set $WORKSPACE3 3:mail
+set $WORKSPACE4 4:IM
+set $WORKSPACE5 5:TMP
+
+bindsym $mod+1 workspace $WORKSPACE1
+bindsym $mod+2 workspace $WORKSPACE2
+bindsym $mod+3 workspace $WORKSPACE3
+bindsym $mod+4 workspace $WORKSPACE4
+bindsym $mod+5 workspace $WORKSPACE5
+
+bindsym $mod+Shift+1 move container to workspace $WORKSPACE1
+bindsym $mod+Shift+2 move container to workspace $WORKSPACE2
+bindsym $mod+Shift+3 move container to workspace $WORKSPACE3
+bindsym $mod+Shift+4 move container to workspace $WORKSPACE4
+bindsym $mod+Shift+5 move container to workspace $WORKSPACE5
+
+# Containers
+bindsym $mod+v split h
+bindsym $mod+b split v
+
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+m move workspace to output left
+
+mode "resize" {
+        bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+        bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# Misc
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space exec --no-startup-id bemenu-run
+bindsym $mod+Shift+s sticky toggle
+bindsym $mod+Shift+f border toggle
+bindsym $mod+f fullscreen
+
+
+# FIXME:
+bindsym $mod+Return exec roxterm
+
+bar {
+        status_command py3status
+}
+
+assign [app_id="firefox2"] $WORKSPACE2

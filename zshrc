@@ -6,8 +6,6 @@ zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}'
 zstyle :compinstall filename '/home/k/.zshrc'
 
-autoload -Uz compinit
-compinit
 
 typeset -A key
 
@@ -91,10 +89,9 @@ unsetopt flow_control
 bindkey '^Q' beginning-of-line
 
 export PATH=~/bin/:~/bin/neovim/bin/:$PATH
-export EDITOR=nvim
+export EDITOR=vim
 [[ $- = *i* ]] && source ~/dotconf/external/liquidprompt/liquidprompt
 
-alias vim=nvim
 
 export $(gnome-keyring-daemon -s)
 
@@ -105,3 +102,11 @@ setopt hist_ignore_dups
 autoload -U edit-command-line
 zle -N edit-command-line
 bindkey '^x^e' edit-command-line
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+[ -f ~/dotconf/external/zsh-z/zsh-z.plugin.zsh ] && source ~/dotconf/external/zsh-z/zsh-z.plugin.zsh
+
+zstyle ':completion:*' menu select
+
+autoload -Uz compinit
+compinit

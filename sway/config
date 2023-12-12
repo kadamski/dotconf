@@ -198,3 +198,9 @@ input * {
     # xkb_model "pc105"a
 }
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+exec swayidle -w \
+        timeout 300 'swaymsg "output * dpms off"' \
+        resume 'swaymsg "output * dpms on"'
+
+bindsym $mod+Shift+d exec "output * dpms on"

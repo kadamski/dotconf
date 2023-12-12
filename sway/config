@@ -1,4 +1,5 @@
-set $menu dmenu_run
+set $menu_hl #3daee9
+set $menu bemenu-run -p "▶" --hf "$menu_hl" --sf "$menu_hl" --scf "$menu_hl" --tf "$menu_hl"
 set $lock swaylock
 
 set $mod Mod4

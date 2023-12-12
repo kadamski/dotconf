@@ -197,3 +197,4 @@ input * {
     # xkb_variant "altgr-intl" 
     # xkb_model "pc105"a
 }
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway

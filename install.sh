@@ -2,7 +2,7 @@
 cd `dirname $0`
 
 DOTFILES='screenrc vimrc vim tmux.conf bashrc i3status.conf i3/config zshrc gitconfig vimperatorrc'
-DOTCONFIGFILES='liquidpromptrc sway'
+DOTCONFIGFILES='liquidpromptrc sway nvim swayidle'
 
 for F in ${DOTFILES}; do
     if [ ! -e ${HOME}/.${F} ]; then

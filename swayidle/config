@@ -1,0 +1,6 @@
+timeout 30  '[ "$(cat /sys/class/power_supply/AC/online)" = "0" ] && light -O && light -U 45' resume 'light -I'
+timeout 90  '[ "$(cat /sys/class/power_supply/AC/online)" = "0" ] && light -O && light -S 5' resume 'light -I'
+timeout 180 '[ "$(cat /sys/class/power_supply/AC/online)" = "0" ] && swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'
+timeout 181 '[ "$(cat /sys/class/power_supply/AC/online)" = "1" ] && light -O && light -U 45' resume 'light -I'
+timeout 300 '[ "$(cat /sys/class/power_supply/AC/online)" = "1" ] && light -O && light -S 5' resume 'light -I'
+timeout 360 '[ "$(cat /sys/class/power_supply/AC/online)" = "1" ] && swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"'

@@ -33,7 +33,7 @@ endif
 
 set background=dark
 "colorscheme gruvbox
-colorscheme solarized8_dark
+colorscheme solarized8_high
 "colorscheme murphy
 
 set listchars=tab:▸\ ,eol:¬,nbsp:␣,trail:·

@@ -1,16 +1,30 @@
+local wk = require("which-key")
+
 -- telescope
 local telescope = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', telescope.find_files, {})
 vim.keymap.set('n', '<C-p>', telescope.find_files, {})
-vim.keymap.set('n', '<leader>fg', telescope.live_grep, {})
-vim.keymap.set('n', '<leader>fb', telescope.buffers, {})
-vim.keymap.set('n', '<leader>fh', telescope.help_tags, {})
+wk.register({
+    f = {
+        name = "telescope",
+        f = { telescope.find_files, "find files" },
+        r = { telescope.oldfiles, "recent files" },
+        b = { telescope.buffers, "buffers" },
+        h = { telescope.help_tags, "help tags" },
+        g = { telescope.live_grep, "grep" },
+    }
+}, { prefix = "<leader>" })
 
 -- lsp
 vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-vim.keymap.set("n", "<leader>gd", vim.lsp.buf.definition, {})
-vim.keymap.set("n", "<leader>gr", vim.lsp.buf.references, {})
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, {})
+wk.register({
+    l = {
+        name = "lsp",
+        d = { vim.lsp.buf.definition, "definition" },
+        r = { vim.lsp.buf.references, "references" },
+        c = { vim.lsp.buf.code_action, "code action" },
+        h = { vim.lsp.buf.hover, "hover" },
+    }
+}, { prefix = "<leader>" })
 
 -- neo-tree
 vim.keymap.set("n", "<C-f>", ":Neotree filesystem toggle left<CR>", {})
@@ -34,11 +48,14 @@ local function toggle_telescope(harpoon_files)
     }):find()
 end
 vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window" })
-
-vim.keymap.set("n", "<leader>ha", function() harpoon:list():append() end)
-vim.keymap.set("n", "<leader>hc", function() harpoon:list():clear() end)
-vim.keymap.set("n", "<leader>hr", function() harpoon:list():remove() end)
---vim.keymap.set("n", "<C-e>">, function() harpoon.ui:toggle_quick_menu(harpoon:list()) end)
-vim.keymap.set("n", "<leader>hp", function() harpoon:list():prev({ui_nav_wrap = true}) end)
 vim.keymap.set("n", "<C-\\>", function() harpoon:list():prev({ui_nav_wrap = true}) end)
 
+wk.register({
+    h = {
+        name = "harpoon",
+        a = { function() harpoon:list():append() end, "add mark" },
+        c = { function() harpoon:list():clear() end, "clear mark" },
+        r = { function() harpoon:list():remove() end, "remove mark" },
+        p = { function() harpoon:list():prev({ui_nav_wrap = true}) end, "previous mark" },
+    }
+}, { prefix = "<leader>" })

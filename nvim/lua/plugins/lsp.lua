@@ -1,6 +1,7 @@
 return {
     {
         "williamboman/mason.nvim",
+        lazy = true,
         config = function()
             require("mason").setup()
         end
@@ -18,6 +19,7 @@ return {
     { "hrsh7th/cmp-nvim-lsp" },
     {
         "hrsh7th/nvim-cmp",
+        lazy = true,
         config = function()
             local cmp = require("cmp")
             cmp.setup({
@@ -40,6 +42,7 @@ return {
     },
     {
         "neovim/nvim-lspconfig",
+        lazy = true,
         depends = {
             "folke/neodev.nvim"
         },

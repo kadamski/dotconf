@@ -1,6 +1,6 @@
 return {
     "nvim-treesitter/nvim-treesitter", build = ":TSUpdate",
-    vent = 'VeryLazy',
+    event = 'VeryLazy',
     dependencies = {
         'nvim-treesitter/nvim-treesitter-textobjects',
     },

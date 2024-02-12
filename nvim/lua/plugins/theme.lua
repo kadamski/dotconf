@@ -17,5 +17,6 @@ return {
             })
             vim.cmd.colorscheme("catppuccin")
         end
-    }
+    },
+    { "ntpeters/vim-better-whitespace" },
 }

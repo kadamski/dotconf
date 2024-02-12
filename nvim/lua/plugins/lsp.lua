@@ -29,7 +29,9 @@ return {
             lsp.lua_ls.setup({
                 capabilities = capabilities
             })
-            lsp.clangd.setup({})
+            lsp.clangd.setup({
+                capabilities = capabilities
+            })
         end
     },
 }

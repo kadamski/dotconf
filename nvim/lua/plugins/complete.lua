@@ -19,6 +19,8 @@ return {
         cmp.setup({
             mapping = cmp.mapping.preset.insert({
                 ["<C-Space>"] = cmp.mapping.complete(),
+                ['<C-d>'] = cmp.mapping.scroll_docs(4),
+                ['<C-u>'] = cmp.mapping.scroll_docs(-4),
                 ["<C-e>"] = cmp.mapping.abort(),
                 ["<CR>"] = cmp.mapping.confirm(select_opts),
                 -- ['<Tab>'] = cmp.mapping(function(fallback)

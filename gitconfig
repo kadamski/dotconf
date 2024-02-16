@@ -7,4 +7,7 @@
 [core]
     excludesfile = ~/dotconf/gitignore_global
 [include]
-    path = ~/.gitconfig-private
+    path = ~/.gitconfig-local
+
+[includeIf "gitdir:~/dotconf/"]
+    path = ~/dotconf/gitconfig-priv

@@ -1,5 +1,14 @@
 local wk = require("which-key")
 
+-- brackets
+wk.register({
+    b = { "<cmd>BufferLineCycleNext<cr>", "Next buffer" }
+}, { prefix = "]"})
+
+wk.register({
+    b = { "<cmd>BufferLineCyclePrev<cr>", "Prev buffer" }
+}, { prefix = "["})
+
 -- telescope
 local telescope = require('telescope.builtin')
 vim.keymap.set('n', '<C-p>', telescope.find_files, {})

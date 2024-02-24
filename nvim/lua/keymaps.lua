@@ -69,3 +69,12 @@ wk.register({
         p = { function() harpoon:list():prev({ui_nav_wrap = true}) end, "previous mark" },
     }
 }, { prefix = "<leader>" })
+
+-- auto-session
+wk.register({
+    r = {
+        name = "session",
+        r = { require("auto-session.session-lens").search_session, "restore" },
+        d = { function() vim.cmd(":Autosession delete") end, "delete" },
+    }
+}, { prefix = "<leader>"})

@@ -6,7 +6,14 @@ return {
         require('lualine').setup({
             options = { theme = "catppuccin" },
             sections = {
-                lualine_a = { 'buffers' }
+                lualine_x = {
+                    {
+                        require("noice").api.status.mode.get,
+                        cond = require("noice").api.status.mode.has,
+                        color = { fg = "#ff9e64" }
+                    }
+                }
+            --     lualine_a = { 'buffers' }
             }
         })
     end

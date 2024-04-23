@@ -4,6 +4,10 @@
     default = simple
 [alias]
     glog = log --oneline --graph --all --color --decorate
+; [column]
+;     ui = auto
+[branch]
+    sort = -committerdate
 [core]
     excludesfile = ~/dotconf/gitignore_global
 [include]
@@ -11,3 +15,12 @@
 
 [includeIf "gitdir:~/dotconf/"]
     path = ~/dotconf/gitconfig-priv
+
+[includeIf "gitdir:~/NOTES/"]
+    path = ~/dotconf/gitconfig-priv
+
+[includeIf "gitdir:~/DEB/SID/"]
+    path = ~/dotconf/gitconfig-priv
+
+[commit]
+	verbose = true

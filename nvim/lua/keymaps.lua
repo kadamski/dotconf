@@ -1,43 +1,41 @@
 local wk = require("which-key")
 
 -- brackets
-wk.register({
-    b = { "<cmd>BufferLineCycleNext<cr>", "Next buffer" }
-}, { prefix = "]"})
+wk.add({
+    { "]b", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" }
+})
 
-wk.register({
-    b = { "<cmd>BufferLineCyclePrev<cr>", "Prev buffer" }
-}, { prefix = "["})
+wk.add({
+    { "[b", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev buffer" }
+})
 
 -- telescope
 local telescope = require('telescope.builtin')
 vim.keymap.set('n', '<C-p>', telescope.find_files, {})
 vim.keymap.set('n', '<C-\'>', telescope.oldfiles, {})
-wk.register({
-    f = {
-        name = "telescope",
-        f = { telescope.find_files, "find files" },
-        r = { telescope.oldfiles, "recent files" },
-        b = { telescope.buffers, "buffers" },
-        h = { telescope.help_tags, "help tags" },
-        g = { telescope.live_grep, "grep" },
-        m = { telescope.marks, "marks" },
-        s = { telescope.lsp_document_symbols, "document symbols" },
-    }
-}, { prefix = "<leader>" })
+
+wk.add({
+    { "<leader>f", group = "telescope" },
+    { "<leader>fb", telescope.buffers, desc = "buffers" },
+    { "<leader>ff", telescope.find_files, desc = "find files" },
+    { "<leader>fg", telescope.live_grep, desc = "grep" },
+    { "<leader>fh", telescope.help_tags, desc = "help tags" },
+    { "<leader>fm", telescope.marks, desc = "marks" },
+    { "<leader>fr", telescope.oldfiles, desc = "recent files" },
+    { "<leader>fs", telescope.lsp_document_symbols, desc = "document symbols" },
+  })
+
 
 -- lsp
 vim.keymap.set("n", "K", vim.lsp.buf.hover, {})
-wk.register({
-    l = {
-        name = "lsp",
-        d = { vim.lsp.buf.definition, "definition" },
-        r = { vim.lsp.buf.references, "references" },
-        c = { vim.lsp.buf.code_action, "code action" },
-        h = { vim.lsp.buf.hover, "hover" },
-        n = { vim.lsp.buf.rename, "rename" },
-    }
-}, { prefix = "<leader>" })
+wk.add({
+    { "<leader>l", group = "lsp" },
+    { "<leader>ld", vim.lsp.buf.definition, desc = "definition" },
+    { "<leader>lr", vim.lsp.buf.references, desc = "references" },
+    { "<leader>lc", vim.lsp.buf.code_action, desc = "code action" },
+    { "<leader>lh", vim.lsp.buf.hover, desc = "hover" },
+    { "<leader>ln", vim.lsp.buf.rename, desc = "rename" },
+})
 
 -- neo-tree
 vim.keymap.set("n", "<C-f>", ":Neotree filesystem toggle left<CR>", {})
@@ -63,27 +61,23 @@ end
 vim.keymap.set("n", "<C-e>", function() toggle_telescope(harpoon:list()) end, { desc = "Open harpoon window" })
 -- vim.keymap.set("n", "<C-\\>", function() harpoon:list():prev({ui_nav_wrap = true}) end)
 
-wk.register({
-    h = {
-        name = "harpoon",
-        a = { function() harpoon:list():append() end, "add mark" },
-        c = { function() harpoon:list():clear() end, "clear mark" },
-        r = { function() harpoon:list():remove() end, "remove mark" },
-        p = { function() harpoon:list():prev({ui_nav_wrap = true}) end, "previous mark" },
-    }
-}, { prefix = "<leader>" })
+wk.add({
+    { "<leader>h", group = "harpoon" },
+    { "<leader>ha", function() harpoon:list():append() end, desc = "add mark" },
+    { "<leader>hc", function() harpoon:list():clear() end, desc = "clear mark" },
+    { "<leader>hr", function() harpoon:list():remove() end, desc = "remove mark" },
+    { "<leader>hp", function() harpoon:list():prev({ui_nav_wrap = true}) end, desc = "previous mark" },
+})
 
 -- bufferline
-wk.register({
-    b = {
-        name = "bufferline",
-        p = { function() vim.cmd(":BufferLinePick") end, "pick" },
-        l = { function() vim.cmd(":BufferLineCycleNext") end, "next" },
-        h = { function() vim.cmd(":BufferLineCyclePrev") end, "prev" },
-        m = { function() vim.cmd(":BufferLineMoveNext") end, "move next" },
-        n = { function() vim.cmd(":BufferLineMovePrev") end, "move prev" },
-    }
-}, { prefix = "<leader>" })
+wk.add({
+    { "<leader>b", group = "bufferline" },
+    { "<leader>bp", function() vim.cmd(":BufferLinePick") end, desc = "pick" },
+    { "<leader>bl", function() vim.cmd(":BufferLineCycleNext") end, desc = "next" },
+    { "<leader>bh", function() vim.cmd(":BufferLineCyclePrev") end, desc = "prev" },
+    { "<leader>bm", function() vim.cmd(":BufferLineMoveNext") end, desc = "move next" },
+    { "<leader>bn", function() vim.cmd(":BufferLineMovePrev") end, desc = "move prev" },
+})
 vim.keymap.set("n", "<M-1>", ":BufferLineGoToBuffer 1 <CR>", {})
 vim.keymap.set("n", "<M-2>", ":BufferLineGoToBuffer 2 <CR>", {})
 vim.keymap.set("n", "<M-3>", ":BufferLineGoToBuffer 3 <CR>", {})
@@ -96,27 +90,20 @@ vim.keymap.set("n", "<M-l>", ":BufferLineCycleNext<CR>", {})
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", {})
 
 -- noice
-wk.register({
-    n = {
-        name = "noice",
-        d = { function() vim.cmd(":Noice dismiss") end, "dismiss noice"},
-        t = { function() vim.cmd(":Noice telescope") end, "telescope"},
-    }
-}, { prefix = "<leader>" })
+wk.add({
+    { "<leader>n", group = "noice" },
+    { "<leader>nd", function() vim.cmd(":Noice dismiss") end, desc = "dismiss noice"},
+    { "<leader>nt", function() vim.cmd(":Noice telescope") end, desc= "telescope"},
+})
 
 -- alpha
-wk.register({
-    a = {
-        function() vim.cmd(":Alpha") end,
-        "alpha"
-    }
-}, { prefix = "<leader>"})
+wk.add({
+    { "<leader>a", function() vim.cmd(":Alpha") end, desc = "alpha" }
+})
 
 -- auto-session
-wk.register({
-    r = {
-        name = "session",
-        r = { require("auto-session.session-lens").search_session, "restore" },
-        d = { function() vim.cmd(":Autosession delete") end, "delete" },
-    }
-}, { prefix = "<leader>"})
+wk.add({
+    { "<leader>r", group = "session" },
+    { "<leader>rr", require("auto-session.session-lens").search_session, desc = "restore" },
+    { "<leader>rd", function() vim.cmd(":Autosession delete") end, desc = "delete" },
+})

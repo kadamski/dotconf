@@ -1,8 +1,8 @@
 #!/bin/sh
 cd `dirname $0`
 
-DOTCONFIGFILES='liquidpromptrc sway nvim swayidle'
 DOTFILES='screenrc vimrc vim tmux.conf bashrc i3status.conf i3/config zshrc gitconfig vimperatorrc zellij'
+DOTCONFIGFILES='liquidpromptrc sway nvim swayidle foot'
 
 for F in ${DOTFILES}; do
     if [ ! -e ${HOME}/.${F} ]; then

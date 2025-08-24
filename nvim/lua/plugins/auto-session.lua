@@ -1,9 +1,7 @@
 return {
-    {
-        'rmagatti/auto-session',
-        dependencies = {
-            'stevearc/dressing.nvim',
-        },
-        opts = {},
+    'rmagatti/auto-session',
+    lazy = false,
+    opts = {
+        auto_save_enabled = true,
     },
 }

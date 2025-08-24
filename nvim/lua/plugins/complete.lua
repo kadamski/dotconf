@@ -15,6 +15,13 @@ return {
     config = function()
         local cmp = require("cmp")
         local select_opts = {behavior = cmp.SelectBehavior.Select, select = true}
+        local cmdline_dbldot = cmp.mapping.preset.cmdline()
+
+        cmdline_dbldot["<Tab>"] = cmp.mapping.confirm({ -- "Tab" will overrides preset behaviour
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+        })
+
         -- require("luasnip.loaders.from_vscode").lazy_load()
         cmp.setup({
             mapping = cmp.mapping.preset.insert({
@@ -66,7 +73,7 @@ return {
             },
         })
         cmp.setup.cmdline(':', {
-            mapping = cmp.mapping.preset.cmdline(),
+            mapping = cmdline_dbldota,
             sources = cmp.config.sources({
                 { name = 'path' }
             }, {
@@ -76,7 +83,8 @@ return {
                             ignore_cmds = { 'Man', '!' }
                         }
                     }
-                })
+                }),
+                matching = { disallow_symbol_nonprefix_matching = false },
         })
         cmp.setup.cmdline('/', {
             mapping = cmp.mapping.preset.cmdline(),

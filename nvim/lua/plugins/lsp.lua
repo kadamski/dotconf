@@ -19,8 +19,9 @@ return {
     {
         "neovim/nvim-lspconfig",
         lazy = true,
-        depends = {
-            "folke/neodev.nvim"
+        dependencies = {
+            "folke/neodev.nvim",
+            "hrsh7th/nvim-cmp",
         },
         config = function(_, _)
             local capabilities = require('cmp_nvim_lsp').default_capabilities()

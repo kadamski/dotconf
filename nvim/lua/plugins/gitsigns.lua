@@ -5,26 +5,24 @@ return {
             local gs = package.loaded.gitsigns
             local wk = require("which-key")
 
-            wk.register({
-                g = {
-                    name = "gitsigns",
-                    b = { function() gs.blame_line({full=true}) end, "blame_line" },
-                    t = { gs.toggle_current_line_blame, "blame line toggle" },
-                    d = { gs.diffthis, "diffthis" },
-                    p = { gs.preview_hunk, "preview hunk" },
-                    s = { gs.stage_hunk, "stage hunk" },
-                    S = { gs.undo_stage_hunk, "undo last stage" },
-                    f = { gs.stage_buffer, "stage file" },
-                }
-            }, { prefix = "<leader>", buffer=bufnr })
+            wk.add({
+                { "<leader>g", group = "gitsigns" },
+                { "<leader>gb", function() gs.blame_line({full=true}) end, desc = "blame_line" },
+                { "<leader>gt", gs.toggle_current_line_blame, desc = "blame line toggle" },
+                { "<leader>gd", gs.diffthis, desc = "diffthis" },
+                { "<leader>gs", gs.stage_hunk, desc = "stage hunk" },
+                { "<leader>gS", gs.undo_stage_hunk, desc = "undo last stage" },
+                { "<leader>gf", gs.stage_buffer, desc = "stage file" },
+                { "<leader>gp", gs.preview_hunk, desc = "preview hunk" },
+            })
 
-            wk.register({
-                g = { gs.next_hunk, "Next Git hunk" },
-            }, { prefix = "]", buffer=bufnr })
+            wk.add(
+                { "]g", function() gs.next_hunk({buffer=bufnr}) end, desc = "Next Git hunk" }
+            )
 
-            wk.register({
-                g = { gs.prev_hunk, "Prev Git hunk" },
-            }, { prefix = "[", buffer=bufnr })
+            wk.add(
+                { "[g", function() gs.prev_hunk({buffer=bufnr}) end, desc = "Prev Git hunk" }
+            )
         end
     },
     config = function(_, opts)
